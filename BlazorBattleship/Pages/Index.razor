@@ -390,41 +390,58 @@ Creation Date: September 10, 2024
     // places a ship at given coords and updates the board and ship count
     private void PlaceShip(int startX, int startY, bool isHorizontal)
     {
-        int shipLength = shipCount + 1; // ship length determined by ship count
-        List<(int x, int y)> coords = new List<(int x, int y)>(); // list ship coords
+        int shipLength = shipCount + 1; // Determine ship length based on the current count
+        bool canPlace = true; // Flag to track if placement is possible
+
+        // Check if ship fits and if the cells are free
         if (isHorizontal)
         {
-            if (startX + shipLength <= 10) // check to make sure horizontal ship fits
+            if (startX + shipLength <= 10) // Check if it fits horizontally
             {
                 for (int i = 0; i < shipLength; i++)
                 {
-                    coords.Add((startX + i, startY)); // add coords to the ships position
-                    playerBoard[startX+i, startY] = true; // add coords to board to show they are occupied
+                    if (playerBoard[startX + i, startY]) // Check for overlap
+                    {
+                        canPlace = false;
+                        break;
+                    }
                 }
-                shipCount++; // increase ship count
+            }
+            else
+            {
+                canPlace = false;
             }
         }
-        else
+        else // Vertical placement
         {
-            if (startY + shipLength <= 10) // check to make sure vertical ship fits
+            if (startY + shipLength <= 10) // Check if it fits vertically
             {
-
                 for (int i = 0; i < shipLength; i++)
                 {
-                    coords.Add((startX, startY+i)); // add coords to the ships position
-                    playerBoard[startX, startY+i] = true; // add coords to board to show they are occupied
+                    if (playerBoard[startX, startY + i]) // Check for overlap
+                    {
+                        canPlace = false;
+                        break;
+                    }
                 }
-
-                shipCount++; // increase ship count
+            }
+            else
+            {
+                canPlace = false;
             }
         }
 
-        // create new ship one size bigger than the last
-        ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
-
-        if (shipCount >= shipLimit)
+        // Place the ship if there is no overlap
+        if (canPlace)
         {
-            //currentGameState = GameState.Playing;
+            for (int i = 0; i < shipLength; i++)
+            {
+                if (isHorizontal)
+                    playerBoard[startX + i, startY] = true; // Mark cells as occupied
+                else
+                    playerBoard[startX, startY + i] = true; // Mark cells as occupied
+            }
+            shipCount++; // Increment ship count after successful placement
         }
     }
 
