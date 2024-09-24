@@ -15,33 +15,50 @@
             bool playVsComp = false;
             // Create two Player instances with the specified number of ships and assign names.
             var player1 = new Player(shipNum, "Player 1");
-            var player2;
-            if (!playVsComp) // If human opponent
-            {
-                player2 = new Player(shipNum, "Player 2"); // Assign other player
-            }
-            else // Else, comp opponent
-            {
-                player2 = new CompOpponent(shipNum); // Assign computer opponent
-            }
+            var player2 = new Player(shipNum, "Player 2");
+            var compOpp = new CompOpponent(shipNum);
             
             // Start the main game loop.
-            while (true)
+            if (!playVsComp)
             {
-                // Player 1 takes a turn attacking Player 2.
-                player1.TakeTurn(player2);
-                // Check if Player 2 has no ships (life) remaining.
-                if (player2.life == 0)
+                while (true)
                 {
-                    Console.WriteLine("Player 1 wins!");
-                    break; // Exit the game loop.
+                    // Player 1 takes a turn attacking Player 2.
+                    player1.TakeTurn(player2);
+                    // Check if Player 2 has no ships (life) remaining.
+                    if (player2.life == 0)
+                    {
+                        Console.WriteLine("Player 1 wins!");
+                        break; // Exit the game loop.
+                    }
+                    player2.TakeTurn(player1);
+                    // Check if Player 1 has no ships (life) remaining.
+                    if (player1.life == 0)
+                    {
+                        Console.WriteLine("Player 2 wins!");
+                        break;
+                    }
                 }
-                player2.TakeTurn(player1);
-                // Check if Player 1 has no ships (life) remaining.
-                if (player1.life == 0)
+            }
+            else
+            {
+                while (true)
                 {
-                    Console.WriteLine("Player 2 wins!");
-                    break;
+                    // Player 1 takes a turn attacking Player 2.
+                    player1.TakeTurn(compOpp);
+                    // Check if Player 2 has no ships (life) remaining.
+                    if (compOpp.life == 0)
+                    {
+                        Console.WriteLine("Player 1 wins!");
+                        break; // Exit the game loop.
+                    }
+                    compOpp.TakeTurn(player1);
+                    // Check if Player 1 has no ships (life) remaining.
+                    if (player1.life == 0)
+                    {
+                        Console.WriteLine("Computer wins!");
+                        break;
+                    }
                 }
             }
         }
