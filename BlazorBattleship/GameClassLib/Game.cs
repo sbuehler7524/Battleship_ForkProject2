@@ -22,7 +22,7 @@
             }
             else // Else, comp opponent
             {
-                player2 = new CompOpponent(shipNum, "COMP"); // Assign computer opponent
+                player2 = new CompOpponent(shipNum); // Assign computer opponent
             }
             
             // Start the main game loop.
