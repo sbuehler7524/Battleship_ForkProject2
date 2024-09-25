@@ -16,25 +16,8 @@
             // Create two Player instances with the specified number of ships and assign names.
             var player1 = new Player(shipNum, "Player 1");
             var player2 = new Player(shipNum, "Player 2");
-            //var compOpp = new CompOpponent(shipNum);
-
-            while (true)
-            {
-                player1.TakeTurn(player2);
-                if (player2.life == 0)
-                    {
-                        Console.WriteLine("Player 1 wins!");
-                        break; // Exit the game loop.
-                    }
-                player2.TakeTurn(player1);
-                if (player1.life == 0)
-                    {
-                        Console.WriteLine("Player 2 wins!");
-                        break;
-                    }
-            }
+            var compOpp = new CompOpponent(shipNum);
             
-            /*
             // Start the main game loop.
             if (!playVsComp)
             {
@@ -78,7 +61,6 @@
                     }
                 }
             }
-            */
         }
     }
 }

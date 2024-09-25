@@ -5,64 +5,61 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlazorBattleship
 build_property.RootNamespace = BlazorBattleship
-build_property.ProjectDir = /Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/
+build_property.ProjectDir = C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship
+build_property.MSBuildProjectDirectory = C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/App.razor]
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/SinglePlayerLobby.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2luZ2xlUGxheWVyTG9iYnkucmF6b3I=
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Shared/Sidebar.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNpZGViYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Shared/Sidebar.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1NpZGViYXIucmF6b3I=
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Shared/SurveyPrompt.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/_Imports.razor]
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Shared/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-exeg9x7lx8
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9ww2v6d7oi
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-u9kta7g3h9
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-yb6yrr4pif
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/_Host.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/Pages/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+[C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

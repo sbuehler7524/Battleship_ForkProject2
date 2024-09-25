@@ -1,316 +1,267 @@
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/appsettings.Development.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/appsettings.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.staticwebassets.runtime.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.exe
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.deps.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.runtimeconfig.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Common.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.TimeProvider.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Features.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/System.IO.Pipelines.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Encodings.Web.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Json.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/System.Threading.Channels.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.AssemblyReference.cache
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfoInputs.cache
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfo.cs
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CoreCompileInputs.cache
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cache
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cs
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.build.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.development.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.build.BlazorBattleship.props
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.BlazorBattleship.props
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.BlazorBattleship.props
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.pack.json
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/bundle/BlazorBattleship.styles.css
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/projectbundle/BlazorBattleship.bundle.scp.css
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBa.3BCA3BCB.Up2Date
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/refint/BlazorBattleship.dll
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.genruntimeconfig.cache
-C:/Users/johnm/source/repos/BlazorBattleship/BlazorBattleship/obj/Debug/net6.0/ref/BlazorBattleship.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.AssemblyReference.cache
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfoInputs.cache
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfo.cs
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CoreCompileInputs.cache
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cache
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cs
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/refint/BlazorBattleship.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.Development.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.staticwebassets.runtime.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.exe
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.deps.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.runtimeconfig.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Common.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.TimeProvider.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Features.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/System.IO.Pipelines.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Encodings.Web.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Json.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Threading.Channels.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.build.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.development.json
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/bundle/BlazorBattleship.styles.css
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/projectbundle/BlazorBattleship.bundle.scp.css
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CopyComplete
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.genruntimeconfig.cache
-C:/Users/moldy/OneDrive/Desktop/Github/Battleship/BlazorBattleship/obj/Debug/net6.0/ref/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.Development.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.staticwebassets.runtime.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.exe
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.deps.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.runtimeconfig.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Common.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.TimeProvider.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Features.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/System.IO.Pipelines.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Encodings.Web.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Json.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Threading.Channels.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.AssemblyReference.cache
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfoInputs.cache
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfo.cs
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CoreCompileInputs.cache
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cache
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cs
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.sourcelink.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.build.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.development.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.build.BlazorBattleship.props
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.BlazorBattleship.props
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.BlazorBattleship.props
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.pack.json
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/bundle/BlazorBattleship.styles.css
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/projectbundle/BlazorBattleship.bundle.scp.css
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBa.3BCA3BCB.Up2Date
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/refint/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.genruntimeconfig.cache
-C:/Users/johnm/OneDrive/Desktop/Visual-Studio-Code-Projects/Raiser's Edge Website/backend/Battleship/BlazorBattleship/obj/Debug/net6.0/ref/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.Development.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.staticwebassets.runtime.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.exe
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.deps.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.runtimeconfig.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Common.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.TimeProvider.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Features.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/System.IO.Pipelines.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Encodings.Web.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Json.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Threading.Channels.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.AssemblyReference.cache
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfoInputs.cache
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfo.cs
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CoreCompileInputs.cache
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cache
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cs
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.sourcelink.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.build.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.development.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.build.BlazorBattleship.props
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.BlazorBattleship.props
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.BlazorBattleship.props
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.pack.json
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/bundle/BlazorBattleship.styles.css
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/projectbundle/BlazorBattleship.bundle.scp.css
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBa.3BCA3BCB.Up2Date
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/refint/BlazorBattleship.dll
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.genruntimeconfig.cache
-C:/Users/johnm/OneDrive/Desktop/BlazorBattleship/Battleship/BlazorBattleship/obj/Debug/net6.0/ref/BlazorBattleship.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.Development.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/appsettings.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.staticwebassets.runtime.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.exe
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.deps.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.runtimeconfig.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Common.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.TimeProvider.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Features.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/System.IO.Pipelines.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Encodings.Web.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Text.Json.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/System.Threading.Channels.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.AssemblyReference.cache
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfoInputs.cache
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfo.cs
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CoreCompileInputs.cache
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cache
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cs
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.build.BlazorBattleship.props
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildMultiTargeting.BlazorBattleship.props
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets/msbuild.buildTransitive.BlazorBattleship.props
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.pack.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.build.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/staticwebassets.development.json
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/bundle/BlazorBattleship.styles.css
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/scopedcss/projectbundle/BlazorBattleship.bundle.scp.css
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CopyComplete
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/refint/BlazorBattleship.dll
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.pdb
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.genruntimeconfig.cache
-C:/Users/A Big Baby/Documents/GitHub/Battleship/BlazorBattleship/obj/Debug/net6.0/ref/BlazorBattleship.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.AssemblyReference.cache
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfoInputs.cache
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.AssemblyInfo.cs
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CoreCompileInputs.cache
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cache
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.RazorAssemblyInfo.cs
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/refint/BlazorBattleship.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.pdb
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/appsettings.Development.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/appsettings.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.staticwebassets.runtime.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.deps.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.runtimeconfig.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/BlazorBattleship.pdb
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Connections.Abstractions.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Client.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.Http.Connections.Common.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Client.Core.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Common.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Bcl.TimeProvider.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Features.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Options.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/Microsoft.Extensions.Primitives.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/System.IO.Pipelines.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/System.Text.Encodings.Web.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/System.Text.Json.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/System.Threading.Channels.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/bin/Debug/net6.0/runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/staticwebassets.build.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/staticwebassets.development.json
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/MainLayout.razor.rz.scp.css
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/scopedcss/Shared/NavMenu.razor.rz.scp.css
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/scopedcss/bundle/BlazorBattleship.styles.css
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/scopedcss/projectbundle/BlazorBattleship.bundle.scp.css
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.csproj.CopyComplete
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/BlazorBattleship.genruntimeconfig.cache
-/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/Debug/net6.0/ref/BlazorBattleship.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\appsettings.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.staticwebassets.runtime.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.exe
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.deps.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.runtimeconfig.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.AssemblyReference.cache
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfoInputs.cache
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfo.cs
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CoreCompileInputs.cache
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cache
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cs
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.build.BlazorBattleship.props
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BlazorBattleship.props
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BlazorBattleship.props
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\bundle\BlazorBattleship.styles.css
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\projectbundle\BlazorBattleship.bundle.scp.css
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBa.3BCA3BCB.Up2Date
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\refint\BlazorBattleship.dll
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.genruntimeconfig.cache
+C:\Users\johnm\source\repos\BlazorBattleship\BlazorBattleship\obj\Debug\net6.0\ref\BlazorBattleship.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.AssemblyReference.cache
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfoInputs.cache
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfo.cs
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CoreCompileInputs.cache
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cache
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cs
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\refint\BlazorBattleship.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.staticwebassets.runtime.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.exe
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.deps.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.runtimeconfig.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\bundle\BlazorBattleship.styles.css
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\projectbundle\BlazorBattleship.bundle.scp.css
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CopyComplete
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.genruntimeconfig.cache
+C:\Users\moldy\OneDrive\Desktop\Github\Battleship\BlazorBattleship\obj\Debug\net6.0\ref\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.staticwebassets.runtime.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.exe
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.deps.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.runtimeconfig.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.AssemblyReference.cache
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfoInputs.cache
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfo.cs
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CoreCompileInputs.cache
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cache
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cs
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.sourcelink.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.build.BlazorBattleship.props
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BlazorBattleship.props
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BlazorBattleship.props
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\bundle\BlazorBattleship.styles.css
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\projectbundle\BlazorBattleship.bundle.scp.css
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBa.3BCA3BCB.Up2Date
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\refint\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.genruntimeconfig.cache
+C:\Users\johnm\OneDrive\Desktop\Visual-Studio-Code-Projects\Raiser's Edge Website\backend\Battleship\BlazorBattleship\obj\Debug\net6.0\ref\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.staticwebassets.runtime.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.exe
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.deps.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.runtimeconfig.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.AssemblyReference.cache
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfoInputs.cache
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfo.cs
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CoreCompileInputs.cache
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cache
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cs
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.sourcelink.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.build.BlazorBattleship.props
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BlazorBattleship.props
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BlazorBattleship.props
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\bundle\BlazorBattleship.styles.css
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\projectbundle\BlazorBattleship.bundle.scp.css
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBa.3BCA3BCB.Up2Date
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\refint\BlazorBattleship.dll
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.genruntimeconfig.cache
+C:\Users\johnm\OneDrive\Desktop\BlazorBattleship\Battleship\BlazorBattleship\obj\Debug\net6.0\ref\BlazorBattleship.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\appsettings.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.staticwebassets.runtime.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.exe
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.deps.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.runtimeconfig.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Bcl.TimeProvider.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Features.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.AssemblyReference.cache
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfoInputs.cache
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.AssemblyInfo.cs
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CoreCompileInputs.cache
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cache
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.RazorAssemblyInfo.cs
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.BlazorBattleship.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.build.BlazorBattleship.props
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BlazorBattleship.props
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BlazorBattleship.props
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\bundle\BlazorBattleship.styles.css
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\scopedcss\projectbundle\BlazorBattleship.bundle.scp.css
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.csproj.CopyComplete
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\refint\BlazorBattleship.dll
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.pdb
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\BlazorBattleship.genruntimeconfig.cache
+C:\Users\A Big Baby\Documents\GitHub\Battleship\BlazorBattleship\obj\Debug\net6.0\ref\BlazorBattleship.dll

@@ -1037,24 +1037,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/mikaela/.nuget/packages/": {}
+    "C:\\Users\\A Big Baby\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/BlazorBattleship.csproj",
+      "projectUniqueName": "C:\\Users\\A Big Baby\\Documents\\GitHub\\Battleship\\BlazorBattleship\\BlazorBattleship.csproj",
       "projectName": "BlazorBattleship",
-      "projectPath": "/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/BlazorBattleship.csproj",
-      "packagesPath": "/Users/mikaela/.nuget/packages/",
-      "outputPath": "/Users/mikaela/Desktop/fall2024/eecs581/project2/Battleship_ForkProject2/BlazorBattleship/obj/",
+      "projectPath": "C:\\Users\\A Big Baby\\Documents\\GitHub\\Battleship\\BlazorBattleship\\BlazorBattleship.csproj",
+      "packagesPath": "C:\\Users\\A Big Baby\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\A Big Baby\\Documents\\GitHub\\Battleship\\BlazorBattleship\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/mikaela/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\A Big Baby\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1097,7 +1104,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.425/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

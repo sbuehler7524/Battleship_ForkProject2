@@ -61,24 +61,12 @@ Creation Date: September 10, 2024
                 </label>
                 @* name is entered and button to play game *@
                 <input @bind="userName" placeholder="Enter Your Name..." />
-
-                <!-- Button for single player mode -->
-                <button class="playComp" @onclick="StartSinglePlayer">Play Single Player</button>
-
                 <button class="play-buton" @onclick="(() => {
                     currentGameState = GameState.ChooseRoom;
                     InvokeAsync(StateHasChanged);
-                })">Play Multiplayer</button>
+                })">Play</button>
             </div>
         </div>
-    }
-
-    <!-- single player mode -->
-    @code {
-        private async Task StartSinglePlayer()
-        {
-            Navigation.NavigateTo("/SinglePlayerLobby");
-        }
     }
 
     <!-- game state with buttons to join different rooms (lobbies) of game -->
@@ -240,7 +228,7 @@ Creation Date: September 10, 2024
     private bool[,] opponentDefaultBoard = new bool[10, 10]; // A default state for the opponents board when neither hit nor miss is recorded
     #endregion
     #region Game State Info
-    private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby, SinglePlayer }
+    private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby }
     private GameState currentGameState = GameState.Initial;
     private string currentPlayer = "";
     private string opponent = "";
