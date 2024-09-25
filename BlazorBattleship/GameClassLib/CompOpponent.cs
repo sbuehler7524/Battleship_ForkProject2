@@ -24,7 +24,17 @@ namespace BlazorBattleship.GameClassLib
 
         private void CreateShips(Ship[] ships, int shipNum)
         {
-            
+            return;
+        }
+
+        public void TakeTurn(Player opponent)
+        {
+            return;
+        }
+        
+        bool CheckShot(Player opponent, (int, int) shotCoordinate)
+        {
+            return false;
         }
     }
 }

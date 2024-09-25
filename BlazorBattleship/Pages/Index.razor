@@ -61,6 +61,11 @@ Creation Date: September 10, 2024
                 </label>
                 @* name is entered and button to play game *@
                 <input @bind="userName" placeholder="Enter Your Name..." />
+                <div>
+                    <input type="checkbox" id="playWithComp" name="playWithComp" value="playWithComp" />
+                    <label for="playWithComp">Computer Opponent</label>
+                </div>
+                
                 <button class="play-buton" @onclick="(() => {
                     currentGameState = GameState.ChooseRoom;
                     InvokeAsync(StateHasChanged);

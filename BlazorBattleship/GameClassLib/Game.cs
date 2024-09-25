@@ -40,12 +40,12 @@
                     }
                 }
             }
-            else
+            /*else
             {
                 while (true)
                 {
                     // Player 1 takes a turn attacking Player 2.
-                    player1.TakeTurn(compOpp);
+                    player1.TakeTurnAgainstComp(compOpp);
                     // Check if Player 2 has no ships (life) remaining.
                     if (compOpp.life == 0)
                     {
@@ -60,7 +60,7 @@
                         break;
                     }
                 }
-            }
+            }*/
         }
     }
 }
