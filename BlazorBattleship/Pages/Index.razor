@@ -111,9 +111,15 @@ Creation Date: September 10, 2024
     @if (currentGameState == GameState.PickShips)
     {
         <div class="num-ships">
-            <label>Enter number of ships (1-5):</label>
-            <input @bind="shipLimit" />
-            <button @onclick="SendShipNum">Enter</button>
+            <label>Enter number of ships (between 1 and 5):</label>
+            @*<input @bind="shipLimit" />*@
+            @*<button @onclick="SendShipNum">Enter</button>*@
+            <input type="number" min="1" max="5" @bind="shipLimit">
+            <button @onclick="(() => {
+                if (shipLimit > 0 && shipLimit < 6) {
+                    InvokeAsync(SendShipNum);
+                }
+            })">Deploy @shipLimit Ships</button>
         </div>
     }
 
@@ -132,93 +138,91 @@ Creation Date: September 10, 2024
         // display either player is to be placing ships or "your board" if ships have been placed
         // -Samuel : This seems to be an attempt at a header, but it doesn't actually seem to work.
         <div class="user-board @(currentGameState == GameState.Playing ? "minimized" : "")" hidden="@(currentGameState != GameState.Setup && currentGameState != GameState.Playing && currentGameState != GameState.Waiting)">
-        <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
+            <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
 
-        <!-- display column names -->
-        <!-- -Samuel : We can probably find a better solution than this. These numbers don't line up with the rest of the board. -->
-        <div class="column-headers">
-            <p /><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p>
-        </div>
-        
-        @for (int y = 0; y < 10; y++)  // display board as rows of buttons (x, y) 
-        {
-            <div class="row">
-                <button class="letter" disabled>@letters[y]</button>
-                @for (int x = 0; x < 10; x++)
+            <!-- Display Personal Board -->
+            <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+                <div class="grid-square"></div>
+                @for (int i = 1; i <= 10; i++)
                 {
-                    int xCoord = x;//Capturing the x and Y coordinates so that their values at button creation are preserved.
-                    int yCoord = y;
-                    <button class="@(GetCellClass(xCoord, yCoord))"
-                            @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
-                            @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
-                            @onmouseout='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) HideShipPreview(xCoord, yCoord, isShipHorizontal); })'></button>
+                    <div class="grid-square">@i</div>
+                }
+                @for (int y = 0; y < 10; y++)
+                {
+                    <div class="grid-square">@letters[y]</div>
+                    @for (int x = 0; x < 10; x++)
+                    {
+                        int xCoord = x; //Capturing the x and Y coordinates so that their values at button creation are preserved.
+                        int yCoord = y;
+                        <button class="@(GetCellClass(xCoord, yCoord))"
+                                @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
+                                @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
+                                @onmouseout='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) HideShipPreview(xCoord, yCoord, isShipHorizontal); })'></button>
+                    }
                 }
             </div>
-        }
 
-        @* button to toggle ship orientation (vertical/horizontal) *@
-        <div class="user-buttons">
-            <div>
-                <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+            @* button to toggle ship orientation (vertical/horizontal) *@
+            <div class="user-buttons">
+                <div>
+                    <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+                </div>
+
+                @* button to start game *@
+                @if (currentGameState == GameState.Setup)
+                {
+                    <button class="square" @onclick="SendReadyMessage">Ready</button>
+                }
+
+                @* button to leave game *@
+                <!-- Leave game button seems to be somewhere else, despite the above comment. -->
             </div>
-
-            @* button to start game *@
-            @if (currentGameState == GameState.Setup)
-            {
-                <button class="square" @onclick="SendReadyMessage">Ready</button>
-            }
-
-            @* button to leave game *@
-            <!-- Leave game button seems to be somewhere else, despite the above comment. -->
         </div>
-    </div>
 }
 
 <!-- display opponents board -->
 @if (player2Ready && room != 0)
 {
-    <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")">
+    <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")"> @* The "enlarged" thing seems to be a way of telling the player it's their turn. Good idea, but bad execution.*@
         <h3>@(opponent)'s Board</h3>
-        <!-- display column labels -->
-        <div class="column-headers">
-            <p /><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p>
-        </div>
 
-        <!-- set up game board for opponent as rows of buttons -->
-        @for (int y = 0; y < 10; y++)
-        {
-            <div class="row">
-                <button class="letter" disabled>@letters[y]</button>
+        <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+            <div class="grid-square"></div>
+            @for (int i = 1; i <= 10; i++)
+            {
+                <div class="grid-square">@i</div>
+            }
+            @for (int y = 0; y < 10; y++)
+            {
+                <div class="grid-square">@letters[y]</div>
                 @for (int x = 0; x < 10; x++)
                 {
-                    int xCoord = x;//Capturing x and y coordinates so that their values at button creation are preserved.
+                    int xCoord = x; //Capturing the x and Y coordinates so that their values at button creation are preserved.
                     int yCoord = y;
-                    // button to select coord for firing
-                    <button 
-                    class="@(OpponentBoardInfo(xCoord, yCoord))"
-                    @onclick='(() => {
-                        SetCoordinates(xCoord, yCoord);
-                    })'></button>
+                    <button class="@(OpponentBoardInfo(xCoord, yCoord))"
+                        @onclick='(() => {
+                        SetCoordinates(xCoord, yCoord); })'></button>
                 }
-            </div>
-        }
+            }
+        </div>
+    </div>
+    
+
+    <!-- Display selected coordinates in a text box in the top right. -->
+    <!-- Samuel - : For some reason, this shows numerical coordinates, and ignores that the Y axis uses letters. -->
+    <div class="fire-control">
+        <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
+
+        <!-- Display current selected coordinates -->
+        <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
     </div>
 
-        <!-- Display selected coordinates in a text box in the top right. -->
-        <!-- Samuel - : For some reason, this shows numerical coordinates, and ignores that the Y axis uses letters. -->
-        <div class="fire-control">
-            <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
-
-            <!-- Display current selected coordinates -->
-            <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
-        </div>
-
-        <ul id="messagesList">
-            @foreach (var move in moves)
-            {
-                <li>@move</li>
-            }
-        </ul>
+    <ul id="messagesList">
+        @foreach (var move in moves)
+        {
+            <li>@move</li>
+        }
+    </ul>
 }
 </div>
 </div>
@@ -267,6 +271,21 @@ Creation Date: September 10, 2024
     private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
     #endregion
     #endregion
+
+    // New Board Test
+    public static void GenerateGrid()
+    {
+        int current_x = 0;
+        int current_y = 0;
+        for (int i = 0; i < 100; i++)
+        {
+            if (i % 10 == 0)
+            {
+                current_y = 0;
+                current_x += 25;
+            }
+        }
+    }
 
     // to reset game board, loop through all tiles in board
     private void ResetBoard(bool[,] board)

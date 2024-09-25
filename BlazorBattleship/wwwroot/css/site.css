@@ -27,6 +27,14 @@ a, .btn-link {
     margin-left: 250px; /* Shift when sidebar is open */
 }
 
+.grid-square {
+    border: 1px solid white;
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    padding: 17px 0;
+}
+
 
 
 /*Non-Gridspace UI Elements*/
@@ -351,7 +359,7 @@ button:disabled, .play-buton:disabled, .join-room:disabled, .square:disabled, .l
 
 .opponent-board {
     flex: 1;
-    max-width: 45%;
+    max-width: 25%;
     height: auto;
     transition: flex 0.5s ease, max-width 0.5s ease;
 }
