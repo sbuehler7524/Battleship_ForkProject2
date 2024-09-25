@@ -34,18 +34,13 @@ Creation Date: September 10, 2024
     <div class="leave">
         <button @onclick="LeaveRoom" hidden="@(room == 0)">Leave Game</button>
     </div>
-
     <div class="player-info">
-
         <div class="player-name">
             <h3>Your Name: @userName</h3>
         </div>
-
-
         <div class="opponent-name">
             <h3>Opponent: @opponent</h3>
         </div>
-
     </div>
 
     <!-- initial game state when page is launched -->
@@ -112,8 +107,6 @@ Creation Date: September 10, 2024
     {
         <div class="num-ships">
             <label>Enter number of ships (between 1 and 5):</label>
-            @*<input @bind="shipLimit" />*@
-            @*<button @onclick="SendShipNum">Enter</button>*@
             <input type="number" min="1" max="5" @bind="shipLimit">
             <button @onclick="(() => {
                 if (shipLimit > 0 && shipLimit < 6) {
@@ -152,8 +145,8 @@ Creation Date: September 10, 2024
                     <div class="grid-square">@letters[y]</div>
                     @for (int x = 0; x < 10; x++)
                     {
-                        int xCoord = x; //Capturing the x and Y coordinates so that their values at button creation are preserved.
-                        int yCoord = y;
+                        int xCoord = x; // Preserves x coordinate
+                        int yCoord = y; // Preserves y coordinate
                         <button class="@(GetCellClass(xCoord, yCoord))"
                                 @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
                                 @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
@@ -178,52 +171,48 @@ Creation Date: September 10, 2024
                 <!-- Leave game button seems to be somewhere else, despite the above comment. -->
             </div>
         </div>
-}
+    }
 
-<!-- display opponents board -->
-@if (player2Ready && room != 0)
-{
-    <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")"> @* The "enlarged" thing seems to be a way of telling the player it's their turn. Good idea, but bad execution.*@
-        <h3>@(opponent)'s Board</h3>
+    <!-- display opponents board -->
+    @if (player2Ready && room != 0)
+    {
+        <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")">
+            <!-- The "enlarged" thing seems to be a way of telling the player it's their turn. Good idea, but bad execution. -->
+            <h3>@(opponent)'s Board</h3>
 
-        <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
-            <div class="grid-square"></div>
-            @for (int i = 1; i <= 10; i++)
-            {
-                <div class="grid-square">@i</div>
-            }
-            @for (int y = 0; y < 10; y++)
-            {
-                <div class="grid-square">@letters[y]</div>
-                @for (int x = 0; x < 10; x++)
+            <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+                <div class="grid-square"></div>
+                @for (int i = 1; i <= 10; i++)
                 {
-                    int xCoord = x; //Capturing the x and Y coordinates so that their values at button creation are preserved.
-                    int yCoord = y;
-                    <button class="@(OpponentBoardInfo(xCoord, yCoord))"
-                        @onclick='(() => {
-                        SetCoordinates(xCoord, yCoord); })'></button>
+                    <div class="grid-square">@i</div>
                 }
-            }
+                @for (int y = 0; y < 10; y++)
+                {
+                    <div class="grid-square">@letters[y]</div>
+                    @for (int x = 0; x < 10; x++)
+                    {
+                        int xCoord = x; // Preserves x coordinate
+                        int yCoord = y; // Preserves y coordinate
+                        <button class="@(OpponentBoardInfo(xCoord, yCoord))" @onclick='(() => { SetCoordinates(xCoord, yCoord); })'></button>
+                    }
+                }
+            </div>
         </div>
-    </div>
-    
 
-    <!-- Display selected coordinates in a text box in the top right. -->
-    <!-- Samuel - : For some reason, this shows numerical coordinates, and ignores that the Y axis uses letters. -->
-    <div class="fire-control">
-        <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
-
-        <!-- Display current selected coordinates -->
-        <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
-    </div>
-
-    <ul id="messagesList">
-        @foreach (var move in moves)
-        {
-            <li>@move</li>
-        }
-    </ul>
-}
+        <!-- Display selected coordinates in a text box in the top right. -->
+        <!-- Samuel - : For some reason, this shows numerical coordinates, and ignores that the Y axis uses letters. -->
+        <div class="fire-control">
+            <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
+            <!-- Display current selected coordinates -->
+            <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
+        </div>
+        <ul id="messagesList">
+            @foreach (var move in moves)
+            {
+                <li>@move</li>
+            }
+        </ul>
+    }
 </div>
 </div>
 
