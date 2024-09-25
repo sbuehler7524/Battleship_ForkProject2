@@ -16,17 +16,21 @@ Creation Date: September 10, 2024
 @inject IJSRuntime JS
 
 <!-- display current gamestate as page title -->
-<PageTitle>@currentGameState</PageTitle>
+<PageTitle>Battleship! - @currentGameState</PageTitle>
 
 <!-- sidebar where ships are located along with button to toggle -->
+<!-- -Samuel : I removed this, as it's effectively useless and barely worked anyway. Not important to the game itself. -->
+<!--
 <div class="sidebar @(isSidebarOpen ? "open" : "")">
     <Sidebar Ships="ships" HubConnection="hubConnection" UserName="@userName"/>
 </div>
 
 <button class="toggle-button" @onclick="ToggleSidebar"></button>
+-->
 
 <!-- display your and opponents name at top of screen -->
-<div class="game-area @(isSidebarOpen ? "shifted" : "")">
+<div class="game-area">
+    <!-- Displays a "Leave Game" button when the player is in an active Room. -->
     <div class="leave">
         <button @onclick="LeaveRoom" hidden="@(room == 0)">Leave Game</button>
     </div>
@@ -37,40 +41,47 @@ Creation Date: September 10, 2024
             <h3>Your Name: @userName</h3>
         </div>
 
+
         <div class="opponent-name">
             <h3>Opponent: @opponent</h3>
         </div>
 
     </div>
 
-<!-- initial game state when page is launched -->
-@if ((currentGameState == GameState.Initial || userName == "") && room == 0)
+    <!-- initial game state when page is launched -->
+    @if ((currentGameState == GameState.Initial || userName == "") && room == 0)
     {
         <div class="name-entry-container">
             <div class="welcome-header">
-                <h2>Welcome to Battleship</h2>
+                <h2>Welcome to Battleship!</h2>
             </div>
             <div class="friends-header">
-                <h2><span>Play</span> with Your Friends</h2>
+                <h2><span>Play</span> with Your Friends!</h2>
             </div>
             <div class="enemies-header">
-                <h2><span>Destroy</span> Your Enemies</h2>
+                <h2><span>Destroy</span> Your Enemies!</h2>
             </div>
             <div class="name-entry-box">
-                <label>
-                    Enter your name:
-                </label>
+                <label>Enter your name:</label>
                 @* Box to enter username *@
-                <input @bind="userName" placeholder="Enter Your Name..." />
+                <input @bind="userName" placeholder="username" />
                 @* Checkbox to enable single-player *@
-                <div>
-                    <input type="checkbox" id="playWithComp" name="playWithComp" value="playWithComp" @bind="playAgainstComp"/>
-                    <label for="playWithComp">Computer Opponent</label>
-                </div>
+                <label>
+                    <input type="checkbox" name="playWithComp" @bind="playAgainstComp">
+                    Computer Opponent
+                </label>
+                <br>
                 @* Play button to change GameState *@
                 <button class="play-buton" @onclick="(() => {
-                    currentGameState = GameState.ChooseRoom;
-                    InvokeAsync(StateHasChanged);
+                    if (playAgainstComp == false) { // If playing against human:
+                        currentGameState = GameState.ChooseRoom;
+                        InvokeAsync(StateHasChanged);
+                    }
+                    else // If playing against computer:
+                    {
+                        currentGameState = GameState.PickShips;
+                        InvokeAsync(StateHasChanged);
+                    }
                 })">Play</button>
             </div>
         </div>
@@ -100,7 +111,7 @@ Creation Date: September 10, 2024
     @if (currentGameState == GameState.PickShips)
     {
         <div class="num-ships">
-            <label>Enter number of ships:</label>
+            <label>Enter number of ships (1-5):</label>
             <input @bind="shipLimit" />
             <button @onclick="SendShipNum">Enter</button>
         </div>
@@ -211,6 +222,7 @@ Creation Date: September 10, 2024
 }
 </div>
 </div>
+
 @code {
     #region Declarations
     #region Page Status
