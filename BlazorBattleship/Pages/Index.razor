@@ -60,13 +60,14 @@ Creation Date: September 10, 2024
                 <label>
                     Enter your name:
                 </label>
-                @* name is entered and button to play game *@
+                @* Box to enter username *@
                 <input @bind="userName" placeholder="Enter Your Name..." />
+                @* Checkbox to enable single-player *@
                 <div>
-                    <input type="checkbox" id="playWithComp" name="playWithComp" value="playWithComp" />
+                    <input type="checkbox" id="playWithComp" name="playWithComp" value="playWithComp" @bind="playAgainstComp"/>
                     <label for="playWithComp">Computer Opponent</label>
                 </div>
-                
+                @* Play button to change GameState *@
                 <button class="play-buton" @onclick="(() => {
                     currentGameState = GameState.ChooseRoom;
                     InvokeAsync(StateHasChanged);
@@ -246,6 +247,7 @@ Creation Date: September 10, 2024
     private int shipCount = 0; // number of ships
     private static int shipLimit; // to limit how many ships are out
     private bool isTurn = false; //keep track of players turn
+    private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
     #endregion
     #endregion
 
