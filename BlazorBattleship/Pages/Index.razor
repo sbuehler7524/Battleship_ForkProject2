@@ -240,7 +240,7 @@ Creation Date: September 10, 2024
     private bool[,] opponentDefaultBoard = new bool[10, 10]; // A default state for the opponents board when neither hit nor miss is recorded
     #endregion
     #region Game State Info
-    private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby }
+    private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby, SPPickShips, SPSetup, SPPlaying, SPWaiting, SPGameOver }
     private GameState currentGameState = GameState.Initial;
     private string currentPlayer = "";
     private string opponent = "";
