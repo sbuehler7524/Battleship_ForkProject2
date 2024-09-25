@@ -88,6 +88,7 @@ Creation Date: September 10, 2024
         </div>
     }
 
+    <!-- Game state where a player is sitting in a lobby, waiting for an opponent. -->
     @if (currentGameState == GameState.InLobby)
     {
         <div class="waiting-for-opponent">
@@ -95,6 +96,7 @@ Creation Date: September 10, 2024
         </div>
     }
 
+    <!-- Game state where Player1 chooses the number of ships. -->
     @if (currentGameState == GameState.PickShips)
     {
         <div class="num-ships">
@@ -104,7 +106,7 @@ Creation Date: September 10, 2024
         </div>
     }
 
-    <!-- game state to wait for other player to choose ship -->
+    <!-- Game state where Player2 is waiting for Player1 to choose the number of ships. -->
     @if (currentGameState == GameState.Waiting && shipLimit == 0)
     {
         <div class="waiting-for-ship-num">
@@ -115,13 +117,14 @@ Creation Date: September 10, 2024
     <div class="boards-wrapper">
     <!-- display main board -->
     @if (userName != "" && (currentGameState == GameState.Setup || currentGameState == GameState.Playing || currentGameState  == GameState.Waiting))
-{
-    // display either player is to be placing ships or "your board" if ships have been placed
-
+    {
+        // display either player is to be placing ships or "your board" if ships have been placed
+        // -Samuel : This seems to be an attempt at a header, but it doesn't actually seem to work.
         <div class="user-board @(currentGameState == GameState.Playing ? "minimized" : "")" hidden="@(currentGameState != GameState.Setup && currentGameState != GameState.Playing && currentGameState != GameState.Waiting)">
         <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
 
         <!-- display column names -->
+        <!-- -Samuel : We can probably find a better solution than this. These numbers don't line up with the rest of the board. -->
         <div class="column-headers">
             <p /><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p>
         </div>
@@ -145,16 +148,17 @@ Creation Date: September 10, 2024
         @* button to toggle ship orientation (vertical/horizontal) *@
         <div class="user-buttons">
             <div>
-                <button @onclick="ToggleShipOrientation">@((isShipHorizontal ? "Horizontal" : "Vertical") + " Placement")</button>
+                <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
             </div>
 
             @* button to start game *@
             @if (currentGameState == GameState.Setup)
             {
-                <button class="square" @onclick="SendReadyMessage">Start Game</button>
+                <button class="square" @onclick="SendReadyMessage">Ready</button>
             }
 
             @* button to leave game *@
+            <!-- Leave game button seems to be somewhere else, despite the above comment. -->
         </div>
     </div>
 }
@@ -189,7 +193,8 @@ Creation Date: September 10, 2024
         }
     </div>
 
-        <!-- Display selected coordinates in a text box -->
+        <!-- Display selected coordinates in a text box in the top right. -->
+        <!-- Samuel - : For some reason, this shows numerical coordinates, and ignores that the Y axis uses letters. -->
         <div class="fire-control">
             <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
 
