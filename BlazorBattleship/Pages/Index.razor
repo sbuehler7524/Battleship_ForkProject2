@@ -13,6 +13,7 @@ Creation Date: September 10, 2024
 @using BlazorBattleship.Shared
 @inject NavigationManager Navigation
 @implements IAsyncDisposable
+@inject IJSRuntime JS
 
 <!-- display current gamestate as page title -->
 <PageTitle>@currentGameState</PageTitle>
@@ -613,7 +614,7 @@ Creation Date: September 10, 2024
         });
 
         // handle response from opponent when firing
-        hubConnection.On<bool>("ShotResponse", (wasHit) =>
+        hubConnection.On<bool>("ShotResponse", async (wasHit) =>
         {
             string message;
 
@@ -623,6 +624,7 @@ Creation Date: September 10, 2024
                 if (wasHit)
                 {
                     message = $"Your Shot at {coordinates} was a hit!";
+                    await JS.InvokeVoidAsync("playSound", "hit"); // Play hit sound
                     opponentBoard[coordinates.Value.x, coordinates.Value.y] = true;
                     opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y] = true;
                     // Update board status for hit
@@ -631,6 +633,7 @@ Creation Date: September 10, 2024
                 else
                 {
                     message = $" Your Shot at {coordinates} was a miss!";
+                    await JS.InvokeVoidAsync("playSound", "miss"); // Play miss sound
                     opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y] = true;
                 }
                 // Check if all ships are sunk for game over condition
@@ -653,6 +656,7 @@ Creation Date: September 10, 2024
             room = roomNum;
             currentGameState = GameState.InLobby;
             await hubConnection.SendAsync("JoinRoom", userName, roomNum);
+            await JS.InvokeVoidAsync("playBackgroundMusic");
         }
     }
 
@@ -699,7 +703,8 @@ Creation Date: September 10, 2024
     {
         if (hubConnection is not null && coordinates.HasValue)
         {
-            // give room (game) and x, y coords
+            await JS.InvokeVoidAsync("playSound", "fire");
+            await Task.Delay(1000);
             await hubConnection.SendAsync("SendCoordinates", userName, room, coordinates.Value.x, coordinates.Value.y);
             currentGameState = GameState.Waiting; // wait for next turn
             isTurn = false;

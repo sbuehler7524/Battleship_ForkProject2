@@ -4,5 +4,35 @@
 @{
     Layout = "_Layout";
 }
+<script>
+let backgroundMusic = new Audio('/sounds/background-music.mp3');
+backgroundMusic.loop = true; // Loop the music
+
+function playBackgroundMusic() {
+    backgroundMusic.play().then(() => {
+        console.log("Background music playing");
+    }).catch(error => {
+        console.error("Background music playback error:", error);
+    });
+}
+</script>
+<script>
+    function playSound(type) {
+    console.log("playSound called with type =", type);  // Debugging console log
+    var sound;
+    
+    if (type === "fire") {
+        sound = new Audio('/sounds/fire.wav');  // Fire sound
+    } else if (type === "hit") {
+        sound = new Audio('/sounds/hit.mp3');   // Hit sound
+    } else if (type === "miss") {
+        sound = new Audio('/sounds/miss.mp3');  // Miss sound
+    }
+
+    sound.play();
+}
+</script>
+
+
 
 <component type="typeof(App)" render-mode="ServerPrerendered" />
