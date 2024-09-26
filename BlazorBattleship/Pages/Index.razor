@@ -120,7 +120,21 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
     {
         opponent = "COM";
         <div>
-            @* TODO: Allow player to choose COM difficulty. *@
+            @* Allow player to choose COM difficulty. *@
+            <p>Choose difficulty:</p>
+
+            @* Player chooses easy mode *@
+            <label>
+                <input type="radio" @bind:checked="comDifficulty" value="0" name="difficulty">Easy
+            </label>
+            @* Player chooses medium mode *@
+            <label>
+                <input type="radio" @bind:checked="comDifficulty" value="1" name="difficulty">Medium
+            </label>
+            @* Player chooses hard mode *@
+            <label>
+                <input type="radio" @bind:checked="comDifficulty" value="2" name="difficulty">Hard
+            </label>
         </div>
     }
 
