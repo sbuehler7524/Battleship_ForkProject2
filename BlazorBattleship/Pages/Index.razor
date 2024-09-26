@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -434,7 +434,9 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         // places a ship at given coords and updates the board and ship count
         private void PlaceShip(int startX, int startY, bool isHorizontal)
         {
+
             int shipLength = shipCount + 1; // Determine ship length based on the current count
+            List<(int x, int y)> coords = new List<(int x, int y)>(); // list ship coords
             bool canPlace = true; // Flag to track if placement is possible
             // Check if ship fits and if the cells are free
             if (isHorizontal)
@@ -478,13 +480,20 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             {
                 for (int i = 0; i < shipLength; i++)
                 {
-                    if (isHorizontal)
+                    if (isHorizontal) {
                         playerBoard[startX + i, startY] = true; // Mark cells as occupied
-                    else
+                        coords.Add((startX + i, startY)); // add coords to the ships position
+                    }
+                    else {
                         playerBoard[startX, startY + i] = true; // Mark cells as occupied
+                        coords.Add((startX, startY+i)); // add coords to the ships position
                 }
-                shipCount++; // Increment ship count after successful placement
+                
+
             }
+            shipCount++; // Increment ship count after successful placement
+            ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
+        }
         }
         #endregion
             #region Opponent Board
@@ -616,12 +625,14 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             Ship? hitShip = null;
 
             if (ships is not null)
-            {
+            {   
+                Console.WriteLine($"Length of ships array: {ships.Length}");
                 foreach (var ship in ships)
                 {
 
                     if (ship is not null && ship.IsHit(x, y))
                     {
+                        Console.WriteLine("test");
                         hitShip = ship;
                         break;
                     }
