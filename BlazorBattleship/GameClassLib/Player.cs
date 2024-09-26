@@ -35,7 +35,7 @@
                 int length = i + 1;  // Determine the length of the ship based on its index (lengths start from 1).
 
                 Console.WriteLine("Enter the orientation of ship " + (i + 1) + " (vertical/horizontal): "); // Prompt the player to enter the orientation of the ship.
-                string orientation = Console.ReadLine();
+                string? orientation = Console.ReadLine();
                 
                 // Set the ship's orientation based on player input.
                 if (orientation == "vertical")

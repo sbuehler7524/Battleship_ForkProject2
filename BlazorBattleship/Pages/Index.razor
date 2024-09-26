@@ -1,4 +1,4 @@
-﻿@* 
+﻿<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -8,7 +8,7 @@ Authors: John Mosley, Paul Dykes, Spencer Addis, Willem Battey, Aryamann Zutshi
 Creation Date: September 10, 2024
 
 New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, Andrew Vanderwerf
-*@
+-->
 
 @page "/"
 @using Microsoft.AspNetCore.SignalR.Client
@@ -19,16 +19,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
 
 <!-- display current gamestate as page title -->
 <PageTitle>Battleship! - @currentGameState</PageTitle>
-
-<!-- sidebar where ships are located along with button to toggle -->
-<!-- -Samuel : I removed this, as it's effectively useless and barely worked anyway. Not important to the game itself. -->
-<!--
-<div class="sidebar @(isSidebarOpen ? "open" : "")">
-    <Sidebar Ships="ships" HubConnection="hubConnection" UserName="@userName"/>
-</div>
-
-<button class="toggle-button" @onclick="ToggleSidebar"></button>
--->
 
 <!-- display your and opponents name at top of screen -->
 <div class="game-area">
@@ -143,100 +133,100 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
     }
 
     <div class="boards-wrapper">
-    <!-- display main board -->
-    @if (userName != "" && (currentGameState == GameState.Setup || currentGameState == GameState.Playing || currentGameState  == GameState.Waiting))
-    {
-        // display either player is to be placing ships or "your board" if ships have been placed
-        <div class="user-board @(currentGameState == GameState.Playing ? "minimized" : "")" hidden="@(currentGameState != GameState.Setup && currentGameState != GameState.Playing && currentGameState != GameState.Waiting)">
-            <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
+        <!-- display main board -->
+        @if (userName != "" && (currentGameState == GameState.Setup || currentGameState == GameState.Playing || currentGameState  == GameState.Waiting))
+        {
+            // display either player is to be placing ships or "your board" if ships have been placed
+            <div class="user-board @(currentGameState == GameState.Playing ? "minimized" : "")" hidden="@(currentGameState != GameState.Setup && currentGameState != GameState.Playing && currentGameState != GameState.Waiting)">
+                <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
 
-            <!-- Display Personal Board -->
-            <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
-                <div class="grid-square"></div>
-                @for (int i = 1; i <= 10; i++)
-                {
-                    <div class="grid-square">@i</div>
-                }
-                @for (int y = 0; y < 10; y++)
-                {
-                    <div class="grid-square">@letters[y]</div>
-                    @for (int x = 0; x < 10; x++)
+                <!-- Display Personal Board -->
+                <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+                    <div class="grid-square"></div>
+                    @for (int i = 1; i <= 10; i++)
                     {
-                        int xCoord = x; // Preserves x coordinate
-                        int yCoord = y; // Preserves y coordinate
-                        <button class="@(GetCellClass(xCoord, yCoord))"
-                                @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
-                                @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
-                                @onmouseout='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) HideShipPreview(xCoord, yCoord, isShipHorizontal); })'></button>
+                        <div class="grid-square">@i</div>
                     }
-                }
-            </div>
-
-            @* button to toggle ship orientation (vertical/horizontal) *@
-            <div class="user-buttons">
-                <div>
-                    <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+                    @for (int y = 0; y < 10; y++)
+                    {
+                        <div class="grid-square">@letters[y]</div>
+                        @for (int x = 0; x < 10; x++)
+                        {
+                            int xCoord = x; // Preserves x coordinate
+                            int yCoord = y; // Preserves y coordinate
+                            <button class="@(GetCellClass(xCoord, yCoord))"
+                                    @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
+                                    @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
+                                    @onmouseout='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) HideShipPreview(xCoord, yCoord, isShipHorizontal); })'></button>
+                        }
+                    }
                 </div>
 
-                @* button to start game *@
-                @if (currentGameState == GameState.Setup)
-                {
-                    if (room == -1)
-                    {
-                        <button class="square" @onclick="StartSingleplayer">Begin</button>
-                    }
-                    else
-                    {
-                        <button class="square" @onclick="SendReadyMessage">Ready</button>
-                    }
-                }
+                @* button to toggle ship orientation (vertical/horizontal) *@
+                <div class="user-buttons">
+                    <div>
+                        <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+                    </div>
 
-                @* button to leave game *@
-                <!-- Leave game button seems to be somewhere else, despite the above comment. -->
-            </div>
-        </div>
-    }
-
-    <!-- display opponents board -->
-    @if (player2Ready && room != 0)
-    {
-        <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")">
-            @* The "enlarged" thing is a way of telling the player it's their turn. *@
-            <h3>@(opponent)'s Board</h3>
-            @* The following displays the opponent's board, without the location of their ships. *@
-            <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
-                <div class="grid-square"></div>
-                @for (int i = 1; i <= 10; i++)
-                {
-                    <div class="grid-square">@i</div>
-                }
-                @for (int y = 0; y < 10; y++)
-                {
-                    <div class="grid-square">@letters[y]</div>
-                    @for (int x = 0; x < 10; x++)
+                    @* button to start game *@
+                    @if (currentGameState == GameState.Setup)
                     {
-                        int xCoord = x; // Preserves x coordinate
-                        int yCoord = y; // Preserves y coordinate
-                        <button class="@(OpponentBoardInfo(xCoord, yCoord))" @onclick='(() => { SetCoordinates(xCoord, yCoord); })'></button>
+                        if (room == -1)
+                        {
+                            <button class="square" @onclick="StartSingleplayer">Begin</button>
+                        }
+                        else
+                        {
+                            <button class="square" @onclick="SendReadyMessage">Ready</button>
+                        }
                     }
-                }
+
+                    @* button to leave game *@
+                    <!-- Leave game button seems to be somewhere else, despite the above comment. -->
+                </div>
             </div>
-        </div>
-        <!-- Display selected coordinates in a text box in the top right. -->
-        <div class="fire-control">
-            <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
-            <!-- Display current selected coordinates -->
-            <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
-        </div>
-        <!-- Displays a list of previous moves. -->
-        <ul id="messagesList">
-            @foreach (var move in moves)
-            {
-                <li>@move</li>
-            }
-        </ul>
-    }
-</div>
+        }
+
+        <!-- display opponents board -->
+        @if (player2Ready && room != 0)
+        {
+            <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")">
+                @* The "enlarged" thing is a way of telling the player it's their turn. *@
+                <h3>@(opponent)'s Board</h3>
+                @* The following displays the opponent's board, without the location of their ships. *@
+                <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+                    <div class="grid-square"></div>
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <div class="grid-square">@i</div>
+                    }
+                    @for (int y = 0; y < 10; y++)
+                    {
+                        <div class="grid-square">@letters[y]</div>
+                        @for (int x = 0; x < 10; x++)
+                        {
+                            int xCoord = x; // Preserves x coordinate
+                            int yCoord = y; // Preserves y coordinate
+                            <button class="@(OpponentBoardInfo(xCoord, yCoord))" @onclick='(() => { SetCoordinates(xCoord, yCoord); })'></button>
+                        }
+                    }
+                </div>
+            </div>
+            <!-- Display selected coordinates in a text box in the top right. -->
+            <div class="fire-control">
+                <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
+                <!-- Display current selected coordinates -->
+                <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
+            </div>
+            <!-- Displays a list of previous moves. -->
+            <ul id="messagesList">
+                @foreach (var move in moves)
+                {
+                    <li>@move</li>
+                }
+            </ul>
+        }
+    </div>
 </div>
 
 @code
@@ -250,7 +240,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             public bool IsConnected => hubConnection?.State == HubConnectionState.Connected;
             public string[] roomStatuses = new string[5] { "Join Room 1", "Join Room 2", "Join Room 3", "Join Room 4", "Join Room 5" };
             private int room = 0;
-            private bool player2Ready = false;
+            private bool player2Ready = false; // Boolean that indicates Player2's ships are placed and they are ready.
         #endregion
         #region Player Information
             private List<string> moves = new List<string>();
@@ -264,12 +254,11 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             private bool[,] previewBoard = new bool[10, 10]; // Stores ship previews
             private bool[,] opponentShots = new bool[10, 10]; // Stores the opponents previous shots
             private int[,] shipHPs = new int[10, 10];
-
             private bool[,] opponentBoard = new bool[10, 10]; // Stores hits/misses on opponent
             private bool[,] opponentDefaultBoard = new bool[10, 10]; // A default state for the opponents board when neither hit nor miss is recorded
         #endregion
         #region Game State Info
-            private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby, SP_PickShips, SP_Setup, SP_Playing }
+            private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby }
             private GameState currentGameState = GameState.Initial;
             private string currentPlayer = "";
             private string opponent = "";
@@ -326,7 +315,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         }
     }
 
-
     #region Modifier Functions
     private void SetCoordinates(int x, int y) //Sets the value of the coordinates tuple for later use
     {
@@ -342,13 +330,14 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
     }
     */
 
-        #region Board Modification
+    #region Board Modification
         #region Player Board
         private string GetCellClass(int x, int y)
         {
-            /*Changes the type of grid space depending on whether or not a ship is currently there.
-            * Effectively this allows for the preview to not override existing ships on the setup board.
-            */
+            /*
+             * Changes the type of grid space depending on whether or not a ship is currently there.
+             * Effectively this allows for the preview to not override existing ships on the setup board.
+             */
             if (playerBoard[x, y] && !opponentShots[x, y])//If there is a ship on this space and the opponent has not shot here yet
             {
                 return "ship";//The space is of type ship
@@ -404,7 +393,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         private void HideShipPreview(int startX, int startY, bool isHorizontal)
         {
             int shipLength = shipCount + 1;
-
             // remove horizontal preview
             if (isHorizontal)
             {
@@ -434,7 +422,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         {
             int shipLength = shipCount + 1; // Determine ship length based on the current count
             bool canPlace = true; // Flag to track if placement is possible
-
             // Check if ship fits and if the cells are free
             if (isHorizontal)
             {
@@ -485,7 +472,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 shipCount++; // Increment ship count after successful placement
             }
         }
-
         #endregion
             #region Opponent Board
                 // return the css class for the opponents board tiles based on the game state
@@ -518,6 +504,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         {
             // TODO: Setup COM's board.
             player2Ready = true;
+            isTurn = true;
         }
     #endregion
 

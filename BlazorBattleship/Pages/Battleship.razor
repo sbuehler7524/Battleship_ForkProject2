@@ -57,7 +57,6 @@
         // when a user and message are received from the connection...
         hubConnection.On<string, string>("ReceiveCoordinates", (user, coordinates) =>
         {
-            //
             var formattedMessage = $"{user} fires at {coordinates}";
             moves.Add(formattedMessage);
             InvokeAsync(StateHasChanged);
@@ -77,7 +76,6 @@
                 var formattedMessage = $"{user} missed at {coordinates}";
             }
         });
-
         await hubConnection.StartAsync();
     }
 
@@ -91,7 +89,6 @@
     }
 
     public bool IsConnected => hubConnection?.State == HubConnectionState.Connected;
-
     public async ValueTask DisposeAsync()
     {
         if (hubConnection is not null)

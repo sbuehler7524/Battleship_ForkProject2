@@ -1,3 +1,4 @@
+
 using BlazorBattleship.Shared;
 
 namespace BlazorBattleship.GameClassLib
@@ -10,7 +11,7 @@ namespace BlazorBattleship.GameClassLib
         
         public CompOpponent(int shipNum)
         {
-            string playerName = "Opponent";
+            //string playerName = "Opponent";
             Ship[] ships = new Ship[shipNum];
             this.CreateShips(ships, shipNum);
             life = (shipNum * (shipNum + 1)) / 2;
