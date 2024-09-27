@@ -540,6 +540,86 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             // TODO: Setup COM's board.
             player2Ready = true;
             isTurn = true;
+            
+            Random random = new Random();
+
+            int shipCount = 0;
+            bool isHorizontal = random.NextDouble() >= 0.5;
+            int shipLength = shipCount + 1;
+            List<(int x, int y)> coords = new List<(int x, int y)>();
+            bool canPlace = true;
+            int startX = random.Next(0, 10);
+            int startY = random.Next(0, 10);
+            /*
+            int startX, startY;
+            
+            // Randomly generate startX and startY
+            if (isHorizontal)
+            {
+                // Ensure startX is within range for horizontal placement
+                startX = random.Next(0, 10 - shipLength); //+ 1);
+                startY = random.Next(0, 10 - shipLength); //+ 1);
+            }
+            else // Vertical placement
+            {
+                startX = random.Next(0, 10 - shipLength); //+ 1);
+                startY = random.Next(0, 10 - shipLength); //+ 1);
+            }
+
+            Console.WriteLine($"StartX: {startX}, StartY: {startY}, ShipLength: {shipLength}, IsHorizontal: {isHorizontal}");
+            */
+
+            // Check if ship fits and if the cells are free
+            if (isHorizontal)
+            {
+                for (int i = 0; i < shipLength; i++)
+                {
+                    if (playerBoard[startX + i, startY]) // Check for overlap
+                    {
+                        Console.WriteLine($"Horizontal placement failed at: X={startX + i}, Y={startY}");
+                        canPlace = false;
+                        break;
+                    }
+                }
+            }
+            else // Vertical placement
+            {
+                for (int i = 0; i < shipLength; i++)
+                {
+                    if (playerBoard[startX, startY + i]) // Check for overlap
+                    {
+                        Console.WriteLine($"Vertical placement failed at: X={startX}, Y={startY + i}");
+                        canPlace = false;
+                        break;
+                    }
+                }
+            }
+
+            // Place the ship if there is no overlap
+            if (canPlace)
+            {
+                for (int i = 0; i < shipLength; i++)
+                {
+                    if (isHorizontal) 
+                    {
+                        playerBoard[startX + i, startY] = true; // Mark cells as occupied
+                        coords.Add((startX + i, startY)); // Add coords to the ship's position
+                    }
+                    else 
+                    {
+                        playerBoard[startX, startY + i] = true; // Mark cells as occupied
+                        coords.Add((startX, startY + i)); // Add coords to the ship's position
+                    }
+                }
+                
+                shipCount++; // Increment ship count after successful placement
+                ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
+                Console.WriteLine($"Ship {shipCount} placed at: {string.Join(", ", coords)}");
+            }
+            else {
+                Console.WriteLine($"Failed to place ship of length {shipLength}.");
+            }
+            InvokeAsync(StateHasChanged);
         }
     #endregion
 
