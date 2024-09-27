@@ -145,6 +145,16 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             <p>@opponent is choosing the number of ships<span class="first">.</span><span class="second">.</span><span class="third">.</span></p>
         </div>
     }
+    @if (currentGameState == GameState.GameOver)
+    {
+        <div class="game-over-message">
+            <p>@gameOverMessage</p>
+        @if (canLeaveRoom)
+        {
+            <button class="leave-room-btn" @onclick="LeaveRoom">Leave Room</button>
+        }
+        </div>
+    }
 
     <div class="boards-wrapper">
         <!-- display main board -->
@@ -260,6 +270,8 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             private List<string> moves = new List<string>();
             private string userName = "";
             private (int x, int y)? coordinates = (0, 0);
+            private string gameOverMessage = string.Empty;  // Default value for the game over message
+            private bool canLeaveRoom = false;  // Default value for whether the player can leave the room
         #endregion
         #region Boards
             // Game board tracking (10x10 grids for both players)
@@ -616,9 +628,15 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         // update the page to show the new user
 
         // when a user and message are received from the connection...
+        hubConnection.On("ReceiveGameOverWin", () =>
+        {
+            currentGameState = GameState.GameOver;
+            moves.Add("All opponent ships destroyed, you won!");
+            InvokeAsync(StateHasChanged); // Refresh UI
+        });
 
         // when opponent fires shot
-        hubConnection.On<string, int, int>("ReceiveCoordinates", (user, x, y) =>
+        hubConnection.On<string, int, int>("ReceiveCoordinates", async (user, x, y) =>
         {
             opponentShots[x, y] = true; // record shot on own board
             currentGameState = GameState.Playing; // change game state to playing so it is current players turn
@@ -647,9 +665,22 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 // if health is completely depleted
                 if (hitShip.IsDestroyed())
                 {
+                    await JS.InvokeVoidAsync("playSound", "sunk");
                     var shipDestructionMessage = $"{hitShip.name} is destroyed!"; // display message in moves
                     moves.Add(shipDestructionMessage);
+
+                    if(AreAllShipsSunk(ships))
+                    {
+                        await hubConnection.SendAsync("SendGameOver", room);
+
+                        // Set the game state to GameOver for the player who received the shot
+                        currentGameState = GameState.GameOver;
+                        moves.Add("All your ships have been sunk! You lost!");
+
+                        InvokeAsync(StateHasChanged); // Refresh UI
+                    }
                 }
+                
                 // if health is remaining
                 else
                 {
@@ -700,7 +731,18 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         await hubConnection.StartAsync();
         await hubConnection.SendAsync("GetRooms");
     }
-
+    private bool AreAllShipsSunk(Ship[] ships)
+    {
+    // Check each ship and see if it's destroyed
+        foreach (var ship in ships)
+        {
+            if (ship != null && !ship.IsDestroyed())
+            {
+                return false; // If even one ship is not destroyed, return false
+            }
+        }
+        return true; // All ships are destroyed
+    }   
     // to join room
     private async Task JoinRoom(int roomNum)
     {
@@ -718,7 +760,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             await JS.InvokeVoidAsync("playBackgroundMusic");
         }
     }
-
+    
     // to leave room
     private async Task LeaveRoom()
     {
@@ -756,7 +798,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             currentGameState = GameState.Setup; // change game state to allow player to set up
         }
     }
-
+    
     // send shot coords to server
     private async Task Fire()
     {
@@ -779,6 +821,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             await hubConnection.DisposeAsync();
         }
     }
+    
 
     #endregion
     //End C# code
