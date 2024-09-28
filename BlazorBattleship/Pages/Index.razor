@@ -379,25 +379,26 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
              * Changes the type of grid space depending on whether or not a ship is currently there.
              * Effectively this allows for the preview to not override existing ships on the setup board.
              */
-            if (playerBoard[x, y] && !opponentShots[x, y])//If there is a ship on this space and the opponent has not shot here yet
+            //Console.WriteLine( playerBoard[0,0] && (opponentShots[0,0] || computerShots[0,0]) );
+            if (playerBoard[x, y] && (!opponentShots[x, y] && !computerShots[x,y]) ) //If there is a ship on this space and the opponent has not shot here yet
             {
-                return "ship";//The space is of type ship
+                return "ship"; //The space is of type ship
             }
-            else if (playerBoard[x, y] && opponentShots[x, y])//If there is a ship on this space, and the opponent has shot here
+            else if (playerBoard[x, y] && (opponentShots[x, y] || computerShots[x, y])) //If there is a ship on this space, and the opponent or computer has shot here
             {
-                return "hit";//The ship has been destroyed
+                return "hit"; //The ship has been destroyed
             }
-            else if (!playerBoard[x, y] && opponentShots[x, y])//If the opponent has shot a tile that does not have a ship on it
+            else if (!playerBoard[x, y] && (opponentShots[x, y] || computerShots[x, y])) //If the opponent has shot a tile that does not have a ship on it
             {
-                return "miss";//The opponent has missed
+                return "miss"; //The opponent has missed
             }
             else if (previewBoard[x, y])//If the space has a preview of a ship
             {
-                return "preview";//The space is of type preview
+                return "preview"; //The space is of type preview
             }
-            else//If none are true
+            else //If none are true
             {
-                return "square";//The space is blank
+                return "square"; //The space is blank
             }
         }
 
@@ -764,6 +765,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
 
             // Player's turn ended, computer's turn
             isTurn = false;
+            //InvokeAsync(StateHasChanged); // Update the UI.
             Fire_Singleplayer();
         }
     #endregion
