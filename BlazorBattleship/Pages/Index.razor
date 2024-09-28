@@ -608,7 +608,11 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             currentGameState = GameState.InLobby; // Or return to the lobby
             InvokeAsync(StateHasChanged);
         });
-
+        hubConnection.On("ReceiveShipSunk", () =>
+        {
+            moves.Add("An opponent ship was sunk!");
+            InvokeAsync(StateHasChanged); //refresh ui
+        });
         // when ship number is received from opponent
         hubConnection.On<int>("ReceiveShipNum", (sl) =>
         {
@@ -666,6 +670,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 if (hitShip.IsDestroyed())
                 {
                     await JS.InvokeVoidAsync("playSound", "sunk");
+                    await hubConnection.SendAsync("SendShipSunk", room);
                     var shipDestructionMessage = $"{hitShip.name} is destroyed!"; // display message in moves
                     moves.Add(shipDestructionMessage);
 
