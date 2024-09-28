@@ -627,7 +627,22 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             }
             return false;
         }
-    
+    private void Fire_Singleplayer()
+    {
+        /* NOTE: This comment block is the multiplayer Fire() code, for quick reference.
+                 It needs to be redone for singleplayer, specifically in this function.
+        if (hubConnection is not null && coordinates.HasValue)
+        {
+            await JS.InvokeVoidAsync("playSound", "fire");
+            await Task.Delay(1000);
+            await hubConnection.SendAsync("SendCoordinates", userName, room, coordinates.Value.x, coordinates.Value.y);
+            currentGameState = GameState.Waiting; // wait for next turn
+            isTurn = false;
+            await InvokeAsync(StateHasChanged); // refresh ui
+        }
+        */
+        return;
+    }
     #endregion
 
     #region Accessor Functions
