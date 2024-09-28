@@ -189,7 +189,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 @* button to toggle ship orientation (vertical/horizontal) *@
                 <div class="user-buttons">
                     <div>
-                        <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+                        <button @onclick="ToggleShipOrientation">Switch to @((!isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
                     </div>
 
                     @* button to start game *@
@@ -276,6 +276,10 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         #region Boards
             // Game board tracking (10x10 grids for both players)
             private string letters = "ABCDEFGHIJ";
+
+            // Not sure if computerBoard should be here or in Ship Parameters, will probably need to move
+            private bool [,] computerBoard = new bool[10, 10]; // Stores computer's ships
+
             private bool[,] playerBoard = new bool[10, 10]; // Stores player's ships
             private bool[,] previewBoard = new bool[10, 10]; // Stores ship previews
             private bool[,] opponentShots = new bool[10, 10]; // Stores the opponents previous shots
@@ -543,84 +547,87 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             
             Random random = new Random();
 
-            int shipCount = 0;
-            bool isHorizontal = random.NextDouble() >= 0.5;
-            int shipLength = shipCount + 1;
-            List<(int x, int y)> coords = new List<(int x, int y)>();
-            bool canPlace = true;
-            int startX = random.Next(0, 10);
-            int startY = random.Next(0, 10);
-            /*
-            int startX, startY;
-            
-            // Randomly generate startX and startY
-            if (isHorizontal)
+            for (int i = 0; i < shipLimit; i++)
             {
-                // Ensure startX is within range for horizontal placement
-                startX = random.Next(0, 10 - shipLength); //+ 1);
-                startY = random.Next(0, 10 - shipLength); //+ 1);
-            }
-            else // Vertical placement
-            {
-                startX = random.Next(0, 10 - shipLength); //+ 1);
-                startY = random.Next(0, 10 - shipLength); //+ 1);
-            }
+                bool shipPlaced = false;
+                int shipLength = i + 1;
 
-            Console.WriteLine($"StartX: {startX}, StartY: {startY}, ShipLength: {shipLength}, IsHorizontal: {isHorizontal}");
-            */
+                while (!shipPlaced)
+                {
+                    int startX = random.Next(0, 10);
+                    int startY = random.Next(0, 10);
+                    bool isHorizontal = random.NextDouble() >= 0.5;
 
+                    if (tryPlaceShips(startX, startY, shipLength, isHorizontal))
+                    {
+                        shipPlaced = true;
+                    }
+                }
+            }
+        }
+
+        private bool tryPlaceShips(int x, int y, int shipLength, bool isHorizontal)
+        {
+            List<(int x, int y)> coords = new List<(int x, int y)>(); // list ship coords
+            bool canPlace = true; // Flag to track if placement is possible
             // Check if ship fits and if the cells are free
             if (isHorizontal)
             {
-                for (int i = 0; i < shipLength; i++)
+                if (startX + shipLength <= 10) // Check if it fits horizontally
                 {
-                    if (playerBoard[startX + i, startY]) // Check for overlap
+                    for (int i = 0; i < shipLength; i++)
                     {
-                        Console.WriteLine($"Horizontal placement failed at: X={startX + i}, Y={startY}");
-                        canPlace = false;
-                        break;
+                        if (computerBoard[startX + i, startY]) // Check for overlap
+                        {
+                            canPlace = false;
+                            break;
+                        }
                     }
+                }
+                else
+                {
+                    canPlace = false;
                 }
             }
             else // Vertical placement
             {
-                for (int i = 0; i < shipLength; i++)
+                if (startY + shipLength <= 10) // Check if it fits vertically
                 {
-                    if (playerBoard[startX, startY + i]) // Check for overlap
+                    for (int i = 0; i < shipLength; i++)
                     {
-                        Console.WriteLine($"Vertical placement failed at: X={startX}, Y={startY + i}");
-                        canPlace = false;
-                        break;
+                        if (computerBoard[startX, startY + i]) // Check for overlap
+                        {
+                            canPlace = false;
+                            break;
+                        }
                     }
                 }
+                else
+                {
+                    canPlace = false;
+                }
             }
-
             // Place the ship if there is no overlap
             if (canPlace)
             {
                 for (int i = 0; i < shipLength; i++)
                 {
-                    if (isHorizontal) 
-                    {
-                        playerBoard[startX + i, startY] = true; // Mark cells as occupied
-                        coords.Add((startX + i, startY)); // Add coords to the ship's position
+                    if (isHorizontal) {
+                        computerBoard[startX + i, startY] = true; // Mark cells as occupied
+                        coords.Add((startX + i, startY)); // add coords to the ships position
                     }
-                    else 
-                    {
-                        playerBoard[startX, startY + i] = true; // Mark cells as occupied
-                        coords.Add((startX, startY + i)); // Add coords to the ship's position
+                    else {
+                        computerBoard[startX, startY + i] = true; // Mark cells as occupied
+                        coords.Add((startX, startY+i)); // add coords to the ships position
                     }
                 }
-                
                 shipCount++; // Increment ship count after successful placement
                 ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
-                Console.WriteLine($"Ship {shipCount} placed at: {string.Join(", ", coords)}");
+                return true;
             }
-            else {
-                Console.WriteLine($"Failed to place ship of length {shipLength}.");
-            }
-            InvokeAsync(StateHasChanged);
+            return false;
         }
+    }
     #endregion
 
     #region Accessor Functions
