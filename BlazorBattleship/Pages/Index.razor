@@ -661,6 +661,8 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             }
             */
 
+            Console.WriteLine("Player's turn");
+
             if (coordinates.HasValue)
             {
                 // Player's shot
@@ -678,6 +680,9 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                     // Miss
                     Console.WriteLine($"Player missed at ({x}, {y})");
                 }
+
+                // Reset player's shot coordinates
+                coordinates = null;
 
                 // Player's turn ended, computer's turn
                 isTurn = false;
@@ -718,7 +723,32 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
 
         private void ComputerTurn()
         {
-            return;
+            Console.WriteLine("Computer's Turn");
+            
+            // Computer's random shot
+            Random random = new Random();
+            int x = random.Next(0, 10);
+            int y = random.Next(0, 10);
+            bool isPlayer = false;
+
+            // TODO: If computer hits same spot, go again
+
+
+            if (HitChecker(isPlayer, x, y))
+            {
+                // Hit
+                Console.WriteLine($"Computer hit player's ship at ({x},{y})");
+            }  
+            else
+            {
+                // Miss
+                Console.WriteLine($"Computer missed player's ship at ({x},{y})");
+            }  
+
+
+            // Player's turn ended, computer's turn
+            isTurn = false;
+            Fire_Singleplayer();
         }
     #endregion
 
