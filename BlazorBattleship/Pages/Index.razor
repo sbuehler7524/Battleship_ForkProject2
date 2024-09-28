@@ -641,7 +641,11 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             await InvokeAsync(StateHasChanged); // refresh ui
         }
         */
-        return;
+        // Play the fire sound.
+        // Need to handle an equivalent of the SendCoordinates call. May require a new function.
+        currentGameState = GameState.Waiting; // Switch the GameState for the player, and let COM play.
+        isTurn = false; // Set isTurn to false.
+        // May need to refresh UI. Unsure.
     }
     #endregion
 
