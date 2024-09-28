@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -238,7 +238,16 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             </div>
             <!-- Display selected coordinates in a text box in the top right. -->
             <div class="fire-control">
-                <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
+                <button @onclick="(() => {
+                    if (room == -1)
+                    {
+                        Fire_Singleplayer();
+                    }
+                    else
+                    {
+                        Fire();
+                    }
+                })" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
                 <!-- Display current selected coordinates -->
                 <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
             </div>
@@ -621,32 +630,95 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                         coords.Add((startX, startY+i)); // add coords to the ships position
                     }
                 }
+                
+                if (shipCount < ships.Length)
+                {
+                    ships[shipCount] = new Ship(shipCount + 1, shipCount, $"Ship: {shipLength}", coords);
+                    shipCount++; // Increment ship count after successful placement
+                }
+                /*
                 shipCount++; // Increment ship count after successful placement
                 ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
+                */
                 return true;
             }
             return false;
         }
-    private void Fire_Singleplayer()
-    {
-        /* NOTE: This comment block is the multiplayer Fire() code, for quick reference.
-                 It needs to be redone for singleplayer, specifically in this function.
-        if (hubConnection is not null && coordinates.HasValue)
+
+        private void Fire_Singleplayer()
         {
-            await JS.InvokeVoidAsync("playSound", "fire");
-            await Task.Delay(1000);
-            await hubConnection.SendAsync("SendCoordinates", userName, room, coordinates.Value.x, coordinates.Value.y);
-            currentGameState = GameState.Waiting; // wait for next turn
-            isTurn = false;
-            await InvokeAsync(StateHasChanged); // refresh ui
+            /* NOTE: This comment block is the multiplayer Fire() code, for quick reference.
+                    It needs to be redone for singleplayer, specifically in this function.
+            if (hubConnection is not null && coordinates.HasValue)
+            {
+                await JS.InvokeVoidAsync("playSound", "fire");
+                await Task.Delay(1000);
+                await hubConnection.SendAsync("SendCoordinates", userName, room, coordinates.Value.x, coordinates.Value.y);
+                currentGameState = GameState.Waiting; // wait for next turn
+                isTurn = false;
+                await InvokeAsync(StateHasChanged); // refresh ui
+            }
+            */
+
+            if (coordinates.HasValue)
+            {
+                // Player's shot
+                int x = coordinates.Value.x;
+                int y = coordinates.Value.y;
+                bool isPlayer = true;
+
+                if (HitChecker(isPlayer, x, y))
+                {
+                    // Hit
+                    Console.WriteLine($"Player hit Computer's ship at ({x}, {y})");
+                }
+                else
+                {
+                    // Miss
+                    Console.WriteLine($"Player missed at ({x}, {y})");
+                }
+
+                // Player's turn ended, computer's turn
+                isTurn = false;
+                ComputerTurn();
+            }
         }
-        */
-        // Play the fire sound.
-        // Need to handle an equivalent of the SendCoordinates call. May require a new function.
-        currentGameState = GameState.Waiting; // Switch the GameState for the player, and let COM play.
-        isTurn = false; // Set isTurn to false.
-        // May need to refresh UI. Unsure.
-    }
+
+        private bool HitChecker(bool isPlayer, int x, int y)
+        {
+            // If isPlayer is the single player, check if they made a hit
+            if (isPlayer)
+            {
+                if (computerBoard[x, y])    // Player made a hit
+                {
+                    computerBoard[x, y] = false;    // Mark hit computer's board
+                    opponentBoard[x, y] = true;     // Mark hit on opponent's board (player's shooting board)
+                    return true;
+                }
+                else {                      // Player missed
+                    opponentBoard[x, y] = false;     // Mark miss on opponent's board
+                    return false;
+                }
+            }
+            else    // Check if computer made a hit
+            {
+                if (playerBoard[x, y])  // Computer made a hit
+                {
+                    playerBoard[x, y] = false;  // Mark hit player's board
+                    opponentBoard[x, y] = true;  // Mark hit on opponent's board (computer's shooting board)
+                    return true;
+                }
+                else {
+                    opponentBoard[x, y] = false;  // Mark miss on opponent's board
+                    return false;
+                }
+            }
+        }
+
+        private void ComputerTurn()
+        {
+            return;
+        }
     #endregion
 
     #region Accessor Functions
