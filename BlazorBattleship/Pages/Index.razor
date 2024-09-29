@@ -1,6 +1,4 @@
 ﻿<!--
-PROJECT 1
-===================================================================================================================
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -9,17 +7,7 @@ Other sources: Chat GPT, Reddit, StackOverflow
 Authors: John Mosley, Paul Dykes, Spencer Addis, Willem Battey, Aryamann Zutshi
 Creation Date: September 10, 2024
 
-PROJECT 2
-===================================================================================================================
-Program: Single Player Battleship in Index
-Description: Modify last group's game to include a single player option. The player will play against a computer
-that can play in easy, medium, or hard mode. Sound effects are added for the player(s) enjoyment.
-Inputs:
-Outputs:
-Other Sources: StackOverflow, YouTube, ChatGPT
 New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, Andrew Vanderwerf
-Date Created: 
-Last Modified: 09/29/24
 -->
 
 @page "/"
@@ -249,7 +237,7 @@ Last Modified: 09/29/24
                 <button @onclick="(() => {
                     if (room == -1)
                     {
-                        Fire_Singleplayer();    // Allow single player to fire
+                        Fire_Singleplayer();
                     }
                     else
                     {
@@ -323,9 +311,9 @@ Last Modified: 09/29/24
             private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
             private int comDifficulty = 0; // Designates computer opponent difficulty. 0 = easy (random shots), 1 = medium (random shots until hit; then orthogonal), 2 = hard (cheater)
             private Ship[]? computerShips; //array to keep track of the computer's ships
-            private bool isEasySelected = false;    // Boolean to help with computer difficulty
-            private bool isMediumSelected = false;  // Boolean to help with computer difficulty
-            private bool isHardSelected = false;    // Boolean to help with computer difficulty
+            private bool isEasySelected = false;    // Help with designating computer difficulty
+            private bool isMediumSelected = false;  // Help with designating computer difficulty
+            private bool isHardSelected = false;    // Help with designating computer difficulty
         #endregion
     #endregion
 
@@ -563,7 +551,6 @@ Last Modified: 09/29/24
     #endregion
 
     #region Singleplayer Functions
-        // Sets up computer's difficulty
         private void SelectDifficulty(int difficulty)
         {
             isEasySelected = difficulty == 0;
@@ -602,20 +589,18 @@ Last Modified: 09/29/24
             }
         }
 
-        // Check if ship placement is valid
         private bool tryPlaceShips(int startX, int startY, int shipLength, bool isHorizontal)
         {
-            List<(int x, int y)> coords = new List<(int x, int y)>(); 
-            bool canPlace = true; 
-
-            // Check if ship can fit horizontally on board and not overlapping
+            List<(int x, int y)> coords = new List<(int x, int y)>(); // list ship coords
+            bool canPlace = true; // Flag to track if placement is possible
+            // Check if ship fits and if the cells are free
             if (isHorizontal)
             {
-                if (startX + shipLength <= 10) 
+                if (startX + shipLength <= 10) // Check if it fits horizontally
                 {
                     for (int i = 0; i < shipLength; i++)
                     {
-                        if (computerBoard[startX + i, startY]) 
+                        if (computerBoard[startX + i, startY]) // Check for overlap
                         {
                             canPlace = false;
                             break;
@@ -627,14 +612,13 @@ Last Modified: 09/29/24
                     canPlace = false;
                 }
             }
-            // Check if ship can fit vertically on board and not overlapping
-            else 
+            else // Vertical placement
             {
-                if (startY + shipLength <= 10) 
+                if (startY + shipLength <= 10) // Check if it fits vertically
                 {
                     for (int i = 0; i < shipLength; i++)
                     {
-                        if (computerBoard[startX, startY + i])
+                        if (computerBoard[startX, startY + i]) // Check for overlap
                         {
                             canPlace = false;
                             break;
@@ -646,18 +630,18 @@ Last Modified: 09/29/24
                     canPlace = false;
                 }
             }
-            // If there's no overlapping, can place ship, mark and store
+            // Place the ship if there is no overlap
             if (canPlace)
             {
                 for (int i = 0; i < shipLength; i++)
                 {
                     if (isHorizontal) {
-                        computerBoard[startX + i, startY] = true; 
-                        coords.Add((startX + i, startY)); 
+                        computerBoard[startX + i, startY] = true; // Mark cells as occupied
+                        coords.Add((startX + i, startY)); // add coords to the ships position
                     }
                     else {
-                        computerBoard[startX, startY + i] = true; 
-                        coords.Add((startX, startY+i)); 
+                        computerBoard[startX, startY + i] = true; // Mark cells as occupied
+                        coords.Add((startX, startY+i)); // add coords to the ships position
                     }
                 }
                 
@@ -710,7 +694,6 @@ Last Modified: 09/29/24
         private bool HitChecker(bool isPlayer, int x, int y)
         {
             Ship? hitShip = null;
-
             // If isPlayer is the single player, check if they made a hit
             if (isPlayer)
             {
@@ -764,6 +747,7 @@ Last Modified: 09/29/24
         {
             Console.WriteLine("Computer's Turn");
             
+            // Computer's random shot
             bool isPlayer = false;
             bool shotIsUnique = false; // Bool to evaluate if the comp's generated target coords are a place it hasn't shot at yet.
             bool foundPreviousHit = false; // Check for a previous hit
