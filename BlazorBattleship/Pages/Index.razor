@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -305,6 +305,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             private Ship[]? ships; // array to keep track of all ships
             private bool isShipHorizontal = true; // To manage ship placement direction
             private int shipCount = 0; // number of ships
+            private int shipCount2 =0;
             private static int shipLimit; // to limit how many ships are out
             private bool isTurn = false; //keep track of players turn
             private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
@@ -566,7 +567,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         {
             player2Ready = true;
             isTurn = true;
-            
+            computerShips = new Ship[shipLimit];
             Random random = new Random();
 
             for (int i = 0; i < shipLimit; i++)
@@ -645,11 +646,9 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                     }
                 }
                 
-                if (shipCount < ships.Length)
-                {
-                    computerShips[shipCount] = new Ship(shipCount + 1, shipCount, $"Ship: {shipLength}", coords);
-                    shipCount++; // Increment ship count after successful placement
-                }
+                    shipCount2++;
+                    computerShips[shipCount2-1] = new Ship(shipCount2 + 1, shipCount2, $"Ship: {shipLength}", coords);
+                     // Increment ship count after successful placement
                 /*
                 shipCount++; // Increment ship count after successful placement
                 ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
@@ -692,6 +691,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
 
         private bool HitChecker(bool isPlayer, int x, int y)
         {
+            Ship? hitShip = null;
             // If isPlayer is the single player, check if they made a hit
             if (isPlayer)
             {
@@ -702,16 +702,18 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 else {                      // Player missed
                     return false;
                 }*/
-                foreach (Ship ship in computerShips)
+                if (computerShips is not null)
                 {
-                    if (ship.IsHit(x,y))
+                foreach (var ship in computerShips)
+                {
+                    if (ship is not null && ship.IsHit(x, y))
                     {
-                        ship.DeductHP();
+                        hitShip = ship;
+                        hitShip.DeductHP();
+                        Console.WriteLine("hp deducted from comp ship");
                         return true;
                     }
-                    else {
-                        return false;
-                    }
+                }
                 }
                 return false;
             }
@@ -724,16 +726,16 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 else {                      // COM missed Player
                     return false;
                 }*/
-                foreach (Ship ship in ships)
-                {
-                    if (ship.IsHit(x,y))
-                    {
-                        ship.DeductHP();
+                foreach (var ship in ships)
+                {   
+                    if (ship is not null && ship.IsHit(x,y))
+                    {   
+                        hitShip= ship;
+                        hitShip.DeductHP();
+                        Console.WriteLine("hp deducted from player ship");
                         return true;
                     }
-                    else {
-                        return false;
-                    }
+                    
                 }
                 return false;
             }
