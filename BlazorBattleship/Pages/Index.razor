@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -716,12 +716,12 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             {
                 if (computerBoard[x, y])    // Player made a hit
                 {
-                    computerBoard[x, y] = false;    // Mark hit computer's board
-                    opponentBoard[x, y] = true;     // Mark hit on opponent's board (player's shooting board)
+                    //computerBoard[x, y] = false;    // Mark hit computer's board
+                    //opponentBoard[x, y] = true;     // Mark hit on opponent's board (player's shooting board)
                     return true;
                 }
                 else {                      // Player missed
-                    opponentBoard[x, y] = false;     // Mark miss on opponent's board
+                    //opponentBoard[x, y] = false;     // Mark miss on opponent's board
                     return false;
                 }
             }
@@ -729,12 +729,12 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             {
                 if (playerBoard[x, y])  // Computer made a hit
                 {
-                    playerBoard[x, y] = false;  // Mark hit player's board
-                    opponentBoard[x, y] = true;  // Mark hit on opponent's board (computer's shooting board)
+                    //playerBoard[x, y] = false;  // Mark hit player's board
+                    //opponentBoard[x, y] = true;  // Mark hit on opponent's board (computer's shooting board)
                     return true;
                 }
                 else {
-                    opponentBoard[x, y] = false;  // Mark miss on opponent's board
+                    //opponentBoard[x, y] = false;  // Mark miss on opponent's board
                     return false;
                 }
             }
