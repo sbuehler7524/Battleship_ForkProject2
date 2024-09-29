@@ -352,7 +352,7 @@ Last Modified: 09/29/24
         opponent = "";
         isShipHorizontal = true;
         shipCount = 0;
-        shipCount2 =0;
+        shipCount2 = 0;
         shipLimit = 0;
         isTurn = false;
 
@@ -746,6 +746,7 @@ Last Modified: 09/29/24
                                 // Set the game state to GameOver for the player who received the shot
                                 currentGameState = GameState.GameOver;
                                 moves.Add("All CPU ships have been sunk! You won!");
+                                await JS.InvokeVoidAsync("pauseBackgroundMusic");
                                 await JS.InvokeVoidAsync("playSound", "win");
                                 InvokeAsync(StateHasChanged); // Refresh UI
                             }
@@ -784,6 +785,7 @@ Last Modified: 09/29/24
                                 // Set the game state to GameOver for the player who received the shot
                                 currentGameState = GameState.GameOver;
                                 moves.Add("All your ships have been sunk! You lost!");
+                                await JS.InvokeVoidAsync("pauseBackgroundMusic");
                                 await JS.InvokeVoidAsync("playSound", "lost");
                                 InvokeAsync(StateHasChanged); // Refresh UI
                             }
@@ -1067,10 +1069,12 @@ Last Modified: 09/29/24
         // update the page to show the new user
 
         // when a user and message are received from the connection...
-        hubConnection.On("ReceiveGameOverWin", () =>
+        hubConnection.On("ReceiveGameOverWin", async () =>
         {
             currentGameState = GameState.GameOver;
             moves.Add("All opponent ships destroyed, you won!");
+            await JS.InvokeVoidAsync("pauseBackgroundMusic");
+            await JS.InvokeVoidAsync("playSound", "win");
             InvokeAsync(StateHasChanged); // Refresh UI
         });
 
@@ -1115,7 +1119,8 @@ Last Modified: 09/29/24
                         // Set the game state to GameOver for the player who received the shot
                         currentGameState = GameState.GameOver;
                         moves.Add("All your ships have been sunk! You lost!");
-
+                        await JS.InvokeVoidAsync("pauseBackgroundMusic");
+                        await JS.InvokeVoidAsync("playSound", "lost");
                         InvokeAsync(StateHasChanged); // Refresh UI
                     }
                 }
@@ -1220,6 +1225,7 @@ Last Modified: 09/29/24
         {
             await hubConnection.SendAsync("LeaveRoom", userName, room);
             // Reset game state and room information locally
+            await JS.InvokeVoidAsync("pauseBackgroundMusic");
             currentGameState = GameState.ChooseRoom; // Return to room selection screen
             Reset(); // Clear game state (boards, ships, etc.)
 
