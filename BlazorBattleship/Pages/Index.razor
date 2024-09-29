@@ -674,7 +674,7 @@ Last Modified: 09/29/24
             return false;
         }
 
-        private void Fire_Singleplayer()
+        private async Task Fire_Singleplayer()
         {   
             if(currentGameState != GameState.GameOver){    
                 Console.WriteLine("Player's turn");
@@ -686,10 +686,10 @@ Last Modified: 09/29/24
                     int x = coordinates.Value.x;
                     int y = coordinates.Value.y;
                     bool isPlayer = true;
-                    
+                    await JS.InvokeVoidAsync("playSound", "fire");
                     if (playerShots[x,y] == false) // If shot has not been attempted before...
                     {
-                        if (HitChecker(isPlayer, x, y)) // Hit
+                        if (await HitChecker(isPlayer, x, y)) // Hit
                         {
                             Console.WriteLine($"Player hit COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
                         }
@@ -701,18 +701,19 @@ Last Modified: 09/29/24
 
                         // Reset player's shot coordinates
                         coordinates = null;
-
+                        InvokeAsync(StateHasChanged);
                         // Player's turn ended, computer's turn
                         if(currentGameState != GameState.GameOver){
                             isTurn = false;
                             ComputerTurn();
+                            InvokeAsync(StateHasChanged);
                     }
                 }
             }
         }
         }
 
-        private bool HitChecker(bool isPlayer, int x, int y)
+        private async Task<bool> HitChecker(bool isPlayer, int x, int y)
         {
             Ship? hitShip = null;
 
@@ -734,20 +735,22 @@ Last Modified: 09/29/24
                     {
                         hitShip = ship;
                         hitShip.DeductHP();
+                        await JS.InvokeVoidAsync("playSound", "hit");
                         Console.WriteLine("hp deducted from comp ship");
                         if (hitShip.IsDestroyed())
                         {
-                            
+                            await JS.InvokeVoidAsync("playSound", "sunk");
                             if(AreAllCPUShipsSunk(computerShips))
                             {
 
                                 // Set the game state to GameOver for the player who received the shot
                                 currentGameState = GameState.GameOver;
                                 moves.Add("All CPU ships have been sunk! You won!");
-
+                                await JS.InvokeVoidAsync("playSound", "win");
                                 InvokeAsync(StateHasChanged); // Refresh UI
                             }
                         }
+                        InvokeAsync(StateHasChanged);
                         return true;
                     }
                 }
@@ -769,29 +772,32 @@ Last Modified: 09/29/24
                     {   
                         hitShip= ship;
                         hitShip.DeductHP();
+                        await JS.InvokeVoidAsync("playSound", "hit");
                         Console.WriteLine("hp deducted from player ship");
+                        InvokeAsync(StateHasChanged);
                         if (hitShip.IsDestroyed())
                         {
-                            
+                            await JS.InvokeVoidAsync("playSound", "sunk");
                             if(AreAllShipsSunk(ships))
                             {
 
                                 // Set the game state to GameOver for the player who received the shot
                                 currentGameState = GameState.GameOver;
                                 moves.Add("All your ships have been sunk! You lost!");
-
+                                await JS.InvokeVoidAsync("playSound", "lost");
                                 InvokeAsync(StateHasChanged); // Refresh UI
                             }
                         }
+                        InvokeAsync(StateHasChanged);
                         return true;
                     }
                     
                 }
                 return false;
             }
+            
         }
-
-        private void ComputerTurn()
+        private async Task ComputerTurn()
         {
             Console.WriteLine("Computer's Turn");
             
@@ -816,13 +822,16 @@ Last Modified: 09/29/24
                     if (computerShots[x,y] == false) // If comp hasn't shot here before...
                     {
                         shotIsUnique = true;
+                        InvokeAsync(StateHasChanged);
                     }
                     else // If it has shot here before, generate new coords and try again.
                     {
                         x = random.Next(0, 10);
                         y = random.Next(0, 10);
+                        InvokeAsync(StateHasChanged);
                     }
                 }
+                InvokeAsync(StateHasChanged);
             }
             // If in MEDIUM MODE: once computer makes a hit, continue to hit orthogonally, otherwise shoot randomly
             else if (comDifficulty == 1)
@@ -906,6 +915,7 @@ Last Modified: 09/29/24
                         }
                     }
                 }
+                InvokeAsync(StateHasChanged);
             }
             // If in HARD MODE: computer can see player's ships, hit everytime
             else if (comDifficulty == 2)
@@ -932,7 +942,7 @@ Last Modified: 09/29/24
             }
 
             // Check computer's shot
-            if (HitChecker(isPlayer, x, y)) // Hit
+            if (await HitChecker(isPlayer, x, y)) // Hit
             {
                 Console.WriteLine($"Computer hit player's ship at ({TranslateCoordsToAlphaNum(x,y)})");
             }  
@@ -945,6 +955,7 @@ Last Modified: 09/29/24
             // Player's turn ended. Start computer's turn
             isTurn = false;
             Fire_Singleplayer();
+            InvokeAsync(StateHasChanged);
         }
 
         private void LeaveRoom()
@@ -1191,6 +1202,7 @@ Last Modified: 09/29/24
         {
             room = -1;
             currentGameState = GameState.PickShips;
+            await JS.InvokeVoidAsync("playBackgroundMusic");
         }
         else if (hubConnection is not null)
         {
