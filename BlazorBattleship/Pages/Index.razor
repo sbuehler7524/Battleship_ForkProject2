@@ -1,4 +1,4 @@
-﻿<!--
+<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -340,6 +340,7 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         opponent = "";
         isShipHorizontal = true;
         shipCount = 0;
+        shipCount2 =0;
         shipLimit = 0;
         isTurn = false;
 
@@ -658,37 +659,41 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         }
 
         private void Fire_Singleplayer()
-        {
-            Console.WriteLine("Player's turn");
-            isTurn = true;
+        {   
+            if(currentGameState != GameState.GameOver){    
+                Console.WriteLine("Player's turn");
+                isTurn = true;
 
-            if (coordinates.HasValue)
-            {
-                // Player's shot
-                int x = coordinates.Value.x;
-                int y = coordinates.Value.y;
-                bool isPlayer = true;
-                
-                if (playerShots[x,y] == false) // If shot has not been attempted before...
+                if (coordinates.HasValue)
                 {
-                    if (HitChecker(isPlayer, x, y)) // Hit
+                    // Player's shot
+                    int x = coordinates.Value.x;
+                    int y = coordinates.Value.y;
+                    bool isPlayer = true;
+                    
+                    if (playerShots[x,y] == false) // If shot has not been attempted before...
                     {
-                        Console.WriteLine($"Player hit COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
-                    }
-                    else // Miss
-                    {
-                        Console.WriteLine($"Player missed COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
-                    }
-                    playerShots[x,y] = true; // Update with the player's shot towards COM
+                        if (HitChecker(isPlayer, x, y)) // Hit
+                        {
+                            Console.WriteLine($"Player hit COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+                        }
+                        else // Miss
+                        {
+                            Console.WriteLine($"Player missed COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+                        }
+                        playerShots[x,y] = true; // Update with the player's shot towards COM
 
-                    // Reset player's shot coordinates
-                    coordinates = null;
+                        // Reset player's shot coordinates
+                        coordinates = null;
 
-                    // Player's turn ended, computer's turn
-                    isTurn = false;
-                    ComputerTurn();
+                        // Player's turn ended, computer's turn
+                        if(currentGameState != GameState.GameOver){
+                            isTurn = false;
+                            ComputerTurn();
+                    }
                 }
             }
+        }
         }
 
         private bool HitChecker(bool isPlayer, int x, int y)
@@ -713,6 +718,19 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                         hitShip = ship;
                         hitShip.DeductHP();
                         Console.WriteLine("hp deducted from comp ship");
+                        if (hitShip.IsDestroyed())
+                        {
+                            
+                            if(AreAllCPUShipsSunk(computerShips))
+                            {
+
+                                // Set the game state to GameOver for the player who received the shot
+                                currentGameState = GameState.GameOver;
+                                moves.Add("All CPU ships have been sunk! You won!");
+
+                                InvokeAsync(StateHasChanged); // Refresh UI
+                            }
+                        }
                         return true;
                     }
                 }
@@ -735,6 +753,19 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                         hitShip= ship;
                         hitShip.DeductHP();
                         Console.WriteLine("hp deducted from player ship");
+                        if (hitShip.IsDestroyed())
+                        {
+                            
+                            if(AreAllShipsSunk(ships))
+                            {
+
+                                // Set the game state to GameOver for the player who received the shot
+                                currentGameState = GameState.GameOver;
+                                moves.Add("All your ships have been sunk! You lost!");
+
+                                InvokeAsync(StateHasChanged); // Refresh UI
+                            }
+                        }
                         return true;
                     }
                     
