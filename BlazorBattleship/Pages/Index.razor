@@ -775,10 +775,28 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 // TODO: If in MEDIUM MODE: once computer makes a hit, continue to hit orthogonally, otherwise shoot randomly
                 return;
             }
+            // If in HARD MODE: computer can see player's ships, hit everytime
             else if (comDifficulty == 2)
             {
-                // TODO: If in HOT MODE: computer can see player's ships, hit everytime
-                return;
+                // Computer looks through player's board for a ship it hasn't hit
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (playerBoard[i, j] && !computerShots[i, j])
+                        {
+                            // Computer has the coordinates of player's ship
+                            x = i;
+                            y = j;
+                            shotIsUnique = true;
+                            break;
+                        }
+                    }
+                    if (shotIsUnique)
+                    {
+                        break;
+                    }
+                }
             }
 
             // Check computer's shot
