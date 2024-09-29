@@ -695,23 +695,47 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             // If isPlayer is the single player, check if they made a hit
             if (isPlayer)
             {
-                if (computerBoard[x, y])    // Player hit COM
+                /*if (computerBoard[x, y])    // Player hit COM
                 {
                     return true;
                 }
                 else {                      // Player missed
                     return false;
+                }*/
+                foreach (Ship ship in computerShips)
+                {
+                    if (ship.IsHit(x,y))
+                    {
+                        ship.DeductHP();
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
+                return false;
             }
             else    // Check if computer hit successfully
             {
-                if (playerBoard[x, y])      // COM hit Player
+                /*if (playerBoard[x, y])      // COM hit Player
                 {
                     return true;
                 }
                 else {                      // COM missed Player
                     return false;
+                }*/
+                foreach (Ship ship in ships)
+                {
+                    if (ship.IsHit(x,y))
+                    {
+                        ship.DeductHP();
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
+                return false;
             }
         }
 
