@@ -123,17 +123,17 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             @* Allow player to choose COM difficulty. *@
             <p>Choose difficulty:</p>
 
-            @* Player chooses easy mode *@
+            @* Player chooses Easy mode, value 0 *@            
             <label>
-                <input type="radio" @bind:checked="comDifficulty" value="0" name="difficulty">Easy
+                <input type="checkbox" checked="@isEasySelected" @onclick="() => SelectDifficulty(0)"> Easy
             </label>
-            @* Player chooses medium mode *@
+            @* Player chooses Medium mode, value 1 *@  
             <label>
-                <input type="radio" @bind:checked="comDifficulty" value="1" name="difficulty">Medium
+                <input type="checkbox" checked="@isMediumSelected" @onclick="() => SelectDifficulty(1)"> Medium
             </label>
-            @* Player chooses hard mode *@
+            @* Player chooses Hard mode, value 2 *@  
             <label>
-                <input type="radio" @bind:checked="comDifficulty" value="2" name="difficulty">Hard
+                <input type="checkbox" checked="@isHardSelected" @onclick="() => SelectDifficulty(2)"> Hard
             </label>
         </div>
     }
@@ -314,6 +314,9 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
             private int comDifficulty = 0; // Designates computer opponent difficulty. 0 = easy (random shots), 1 = medium (random shots until hit; then orthogonal), 2 = hard (cheater)
             private Ship[]? computerShips; //array to keep track of the computer's ships
+            private bool isEasySelected = false;    // Help with designating computer difficulty
+            private bool isMediumSelected = false;  // Help with designating computer difficulty
+            private bool isHardSelected = false;    // Help with designating computer difficulty
         #endregion
     #endregion
 
@@ -551,6 +554,16 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
     #endregion
 
     #region Singleplayer Functions
+        private void SelectDifficulty(int difficulty)
+        {
+            isEasySelected = difficulty == 0;
+            isMediumSelected = difficulty == 1;
+            isHardSelected = difficulty == 2;
+
+            comDifficulty = difficulty;
+            Console.WriteLine($"Selected difficulty: {comDifficulty}");
+        }
+
         private void StartSingleplayer()
         // Sets up COM opponent's board, then declares itself as ready.
         {
@@ -733,24 +746,42 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             
             // Computer's random shot
             bool isPlayer = false;
-            Random random = new Random();
             bool shotIsUnique = false; // Bool to evaluate if the comp's generated target coords are a place it hasn't shot at yet.
-            int x = random.Next(0, 10);
-            int y = random.Next(0, 10);
+            int x = 0;
+            int y = 0;
 
-            while (!shotIsUnique)
+            // If in EASY MODE: computer shoots randomly
+            if (comDifficulty == 0)
             {
-                if (computerShots[x,y] == false) // If comp hasn't shot here before...
+                Random random = new Random();
+                x = random.Next(0, 10);
+                y = random.Next(0, 10);
+
+                while (!shotIsUnique)
                 {
-                    shotIsUnique = true;
-                }
-                else // If it has shot here before, generate new coords and try again.
-                {
-                    x = random.Next(0, 10);
-                    y = random.Next(0, 10);
+                    if (computerShots[x,y] == false) // If comp hasn't shot here before...
+                    {
+                        shotIsUnique = true;
+                    }
+                    else // If it has shot here before, generate new coords and try again.
+                    {
+                        x = random.Next(0, 10);
+                        y = random.Next(0, 10);
+                    }
                 }
             }
+            else if (comDifficulty == 1)
+            {
+                // TODO: If in MEDIUM MODE: once computer makes a hit, continue to hit orthogonally, otherwise shoot randomly
+                return;
+            }
+            else if (comDifficulty == 2)
+            {
+                // TODO: If in HOT MODE: computer can see player's ships, hit everytime
+                return;
+            }
 
+            // Check computer's shot
             if (HitChecker(isPlayer, x, y))
             {
                 // Hit
@@ -766,7 +797,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
 
             // Player's turn ended, computer's turn
             isTurn = false;
-            //InvokeAsync(StateHasChanged); // Update the UI.
             Fire_Singleplayer();
         }
     #endregion
