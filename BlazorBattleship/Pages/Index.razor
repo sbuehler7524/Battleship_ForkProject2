@@ -536,11 +536,11 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                     {
                         return "hit-preview"; // display preview where the player is about to fire
                     }
-                    else if (opponentDefaultBoard[x, y] && opponentBoard[x, y])
+                    else if ( (opponentDefaultBoard[x, y] && opponentBoard[x, y]) || (computerBoard[x,y] && playerShots[x,y]) )
                     {
                         return "hit"; // display hit was made on this tile
                     }
-                    else if (opponentDefaultBoard[x, y] && !opponentBoard[x, y])
+                    else if ( (opponentDefaultBoard[x, y] && !opponentBoard[x, y]) || (!computerBoard[x,y] && playerShots[x,y]) )
                     {
                         return "miss"; // display miss was made on this tile
                     }
@@ -567,7 +567,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
         private void StartSingleplayer()
         // Sets up COM opponent's board, then declares itself as ready.
         {
-            // TODO: Setup COM's board.
             player2Ready = true;
             isTurn = true;
             
