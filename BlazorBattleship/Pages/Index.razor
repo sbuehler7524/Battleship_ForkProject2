@@ -750,6 +750,9 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             // Computer's random shot
             bool isPlayer = false;
             bool shotIsUnique = false; // Bool to evaluate if the comp's generated target coords are a place it hasn't shot at yet.
+            bool foundPreviousHit = false; // Check for a previous hit
+            int consecutiveHits = 0; // Track the number of consecutive hits
+            string direction = ""; // Variable to store the direction of shots
             int x = 0;
             int y = 0;
 
@@ -776,8 +779,85 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             // If in MEDIUM MODE: once computer makes a hit, continue to hit orthogonally, otherwise shoot randomly
             else if (comDifficulty == 1)
             {
-                // TODO: If in MEDIUM MODE: once computer makes a hit, continue to hit orthogonally, otherwise shoot randomly
-                return;
+                if (foundPreviousHit && consecutiveHits >= 2)
+                {
+                    // Continue shooting in the same direction if two consecutive hits were made
+                    if (direction == "up" && x > 0 && !computerShots[x - 1, y])
+                    {
+                        x--;
+                    }
+                    else if (direction == "down" && x < 9 && !computerShots[x + 1, y])
+                    {
+                        x++;
+                    }
+                    else if (direction == "left" && y > 0 && !computerShots[x, y - 1])
+                    {
+                        y--;
+                    }
+                    else if (direction == "right" && y < 9 && !computerShots[x, y + 1])
+                    {
+                        y++;
+                    }
+                    else
+                    {
+                        // If no valid move in the current direction, reset
+                        foundPreviousHit = false;
+                        consecutiveHits = 0;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 10 && !foundPreviousHit; i++)
+                    {
+                        for (int j = 0; j < 10 && !foundPreviousHit; j++)
+                        {
+                            // If there's a previous hit on the player's board, but the ship isn't destroyed yet
+                            if (computerShots[i, j] && playerBoard[i, j] && !opponentShots[i, j])
+                            {
+                                // Try shooting orthogonally (up, down, left, right)
+                                if (i > 0 && !computerShots[i - 1, j]) 
+                                { 
+                                    x = i - 1; y = j; 
+                                    foundPreviousHit = true; 
+                                    direction = "up";
+                                }
+                                else if (i < 9 && !computerShots[i + 1, j]) 
+                                { 
+                                    x = i + 1; y = j; 
+                                    foundPreviousHit = true; 
+                                    direction = "down";
+                                }
+                                else if (j > 0 && !computerShots[i, j - 1]) 
+                                { 
+                                    x = i; y = j - 1; 
+                                    foundPreviousHit = true; 
+                                    direction = "left";
+                                }
+                                else if (j < 9 && !computerShots[i, j + 1]) 
+                                { 
+                                    x = i; y = j + 1; 
+                                    foundPreviousHit = true; 
+                                    direction = "right";
+                                }
+                            }
+                        }
+                    }
+
+                    // If no previous hit or no orthogonal shots available, shoot randomly
+                    if (!foundPreviousHit)
+                    {
+                        Random random = new Random();
+                        while (!shotIsUnique)
+                        {
+                            x = random.Next(0, 10);
+                            y = random.Next(0, 10);
+                            if (!computerShots[x, y])
+                            {
+                                shotIsUnique = true;
+                            }
+                        }
+                    }
+                }
             }
             // If in HARD MODE: computer can see player's ships, hit everytime
             else if (comDifficulty == 2)
