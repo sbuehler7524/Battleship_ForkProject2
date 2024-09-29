@@ -15,6 +15,10 @@ function playBackgroundMusic() {
         console.error("Background music playback error:", error);
     });
 }
+function pauseBackgroundMusic() {
+    backgroundMusic.pause();  // This will pause the music
+    console.log("Background music paused");
+}
 </script>
 <script>
     function playSound(type) {
@@ -29,6 +33,10 @@ function playBackgroundMusic() {
         sound = new Audio('/sounds/miss.mp3');  // Miss sound
     }else if (type === "sunk") {
         sound = new Audio('/sounds/sunk.wav');  // Miss sound
+    }else if (type === "win") {
+        sound = new Audio('/sounds/win.wav');  // Miss sound
+    }else if (type === "lost") {
+        sound = new Audio('/sounds/lost.mp3');  // Miss sound
     }
 
 
