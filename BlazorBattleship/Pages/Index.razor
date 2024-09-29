@@ -124,7 +124,7 @@ Last Modified: 09/29/24
                         currentGameState = GameState.Setup;
                     }
                 }
-            })">Deploy @shipLimit Ships</button>
+            })" disabled="@(shipLimit <= 0 || shipLimit > 5 || (room == -1 && !(isEasySelected || isMediumSelected || isHardSelected)))">Deploy @shipLimit Ships</button>
         </div>
     }
 
