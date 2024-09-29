@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -466,7 +466,6 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             // places a ship at given coords and updates the board and ship count
             private void PlaceShip(int startX, int startY, bool isHorizontal)
             {
-
                 int shipLength = shipCount + 1; // Determine ship length based on the current count
                 List<(int x, int y)> coords = new List<(int x, int y)>(); // list ship coords
                 bool canPlace = true; // Flag to track if placement is possible
@@ -669,23 +668,26 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
                 int x = coordinates.Value.x;
                 int y = coordinates.Value.y;
                 bool isPlayer = true;
-
-                if (HitChecker(isPlayer, x, y)) // Hit
+                
+                if (playerShots[x,y] == false) // If shot has not been attempted before...
                 {
-                    Console.WriteLine($"Player hit COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
-                }
-                else // Miss
-                {
-                    Console.WriteLine($"Player missed COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
-                }
-                playerShots[x,y] = true; // Update with the player's shot towards COM
+                    if (HitChecker(isPlayer, x, y)) // Hit
+                    {
+                        Console.WriteLine($"Player hit COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+                    }
+                    else // Miss
+                    {
+                        Console.WriteLine($"Player missed COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+                    }
+                    playerShots[x,y] = true; // Update with the player's shot towards COM
 
-                // Reset player's shot coordinates
-                coordinates = null;
+                    // Reset player's shot coordinates
+                    coordinates = null;
 
-                // Player's turn ended, computer's turn
-                isTurn = false;
-                ComputerTurn();
+                    // Player's turn ended, computer's turn
+                    isTurn = false;
+                    ComputerTurn();
+                }
             }
         }
 
@@ -815,6 +817,23 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
             // Player's turn ended. Start computer's turn
             isTurn = false;
             Fire_Singleplayer();
+        }
+
+        private void LeaveRoom()
+        {
+            if(room >= 1)
+            {
+                LeaveMultiplayer();
+            }
+            else
+            {
+                currentGameState = GameState.Initial;
+                Reset();
+                room = 0;
+                isTurn = false;
+                player2Ready = false;
+                opponent = "";
+            }
         }
     #endregion
 
@@ -1055,12 +1074,11 @@ New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, An
     }
     
     // to leave room
-    private async Task LeaveRoom()
+    private async Task LeaveMultiplayer()
     {
         if (hubConnection is not null)
         {
             await hubConnection.SendAsync("LeaveRoom", userName, room);
-
             // Reset game state and room information locally
             currentGameState = GameState.ChooseRoom; // Return to room selection screen
             Reset(); // Clear game state (boards, ships, etc.)
