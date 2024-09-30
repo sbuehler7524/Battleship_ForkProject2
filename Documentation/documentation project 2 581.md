@@ -31,7 +31,7 @@ This game is designed to be run on a single device, players are expected to hand
 
  **Time Estimate (person-hours)**
 
-* Abhishek (Documentation) \= 10 hours  
+* Abhishek (Documentation) \= 11 hours  
 * Andrew (Coding/UML Diagram/Error Fixing) \= 16.5 hours  
 * Collins (Coding/Assets/Testing) \=  11 hours  
 * Mikaela (Coding) \= 20 hours  
@@ -152,10 +152,11 @@ September 29:
 * Added delay to triggering sounds if the AI/players make a hit at the same time.   
 * Edited deploy button.  
 * Added a feature where the player cannot pick the same spot multiple times in singleplayer.  
-* Fixed the “Leave Room” feature in singleplayer.  
+* Fixed the “Leave Room” feature in singleplayer.
+* Merged the singleplayer branch into the main branch.
 * Time Accounting:  
   * Mikaela: 1 hour  
-  * Abhishek: 3 hours  
+  * Abhishek: 4 hours  
   * Samuel: 1 hour  
   * Andrew: 2.5 hours  
   * Collins: 1 hour
