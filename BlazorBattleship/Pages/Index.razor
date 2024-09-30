@@ -318,7 +318,7 @@ Last Modified: 09/29/24
             private Ship[]? ships; // array to keep track of all ships
             private bool isShipHorizontal = true; // To manage ship placement direction
             private int shipCount = 0; // number of ships
-            private int shipCount2 =0;
+            private int shipCount2 =0; //Variable to count for placed AI ships
             private static int shipLimit; // to limit how many ships are out
             private bool isTurn = false; //keep track of players turn
             private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
@@ -733,19 +733,19 @@ Last Modified: 09/29/24
                 {
                 foreach (var ship in computerShips)
                 {
-                    if (ship is not null && ship.IsHit(x, y))
+                    if (ship is not null && ship.IsHit(x, y)) //Go through each ship, finding the one that matches the coordinates fired at if applicable
                     {
                         hitShip = ship;
-                        hitShip.DeductHP();
+                        hitShip.DeductHP(); //Deduct HP from the ship that was hit
                         await JS.InvokeVoidAsync("playSound", "hit");
                         Console.WriteLine("hp deducted from comp ship");
                         if (hitShip.IsDestroyed())
                         {
                             await JS.InvokeVoidAsync("playSound", "sunk");
-                            if(AreAllCPUShipsSunk(computerShips))
+                            if(AreAllCPUShipsSunk(computerShips)) //Check if all ships are sunk for CPU
                             {
 
-                                // Set the game state to GameOver for the player who received the shot
+                                // Set the game state to GameOver, tell player they won
                                 currentGameState = GameState.GameOver;
                                 moves.Add("All CPU ships have been sunk! You won!");
                                 await JS.InvokeVoidAsync("pauseBackgroundMusic");
@@ -769,7 +769,7 @@ Last Modified: 09/29/24
                 else {                      // COM missed Player
                     return false;
                 }*/
-                foreach (var ship in ships)
+                foreach (var ship in ships) //Same logic as above, just with the player ships instead
                 {   
                     if (ship is not null && ship.IsHit(x,y))
                     {   
@@ -781,7 +781,7 @@ Last Modified: 09/29/24
                         if (hitShip.IsDestroyed())
                         {
                             await JS.InvokeVoidAsync("playSound", "sunk");
-                            if(AreAllShipsSunk(ships))
+                            if(AreAllShipsSunk(ships)) //Check if all ships are sunk for the player
                             {
 
                                 // Set the game state to GameOver for the player who received the shot
