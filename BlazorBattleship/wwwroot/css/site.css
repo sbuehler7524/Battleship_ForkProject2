@@ -27,6 +27,14 @@ a, .btn-link {
     margin-left: 250px; /* Shift when sidebar is open */
 }
 
+.grid-square {
+    border: 1px solid white;
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    padding: 17px 0;
+}
+
 
 
 /*Non-Gridspace UI Elements*/
@@ -330,8 +338,8 @@ button:disabled, .play-buton:disabled, .join-room:disabled, .square:disabled, .l
 
 .user-board {
     flex: 1;
-    transition: flex 0.5s ease, max-width 0.5s ease;
-    max-width: 25%;
+    /*transition: flex 0.5s ease, max-width 0.5s ease;*/
+    max-width: 40%;
 }
 .user-board.normal{
     flex: 1;
@@ -351,9 +359,9 @@ button:disabled, .play-buton:disabled, .join-room:disabled, .square:disabled, .l
 
 .opponent-board {
     flex: 1;
-    max-width: 45%;
-    height: auto;
-    transition: flex 0.5s ease, max-width 0.5s ease;
+    max-width: 40%;
+    /*height: auto;*/
+    /*transition: flex 0.5s ease, max-width 0.5s ease;*/
 }
 
 .opponent-board .row button{
@@ -362,9 +370,10 @@ button:disabled, .play-buton:disabled, .join-room:disabled, .square:disabled, .l
 }
 
 .opponent-board.enlarged{
-    flex: 4;
-    max-width: 60%;
+    flex: 1;
+    max-width: 25%;
     height: auto;
+    background-color: #222222;
 }
 
 .opponent-board.enlarged .row button{

@@ -84,5 +84,11 @@ namespace BlazorBattleship.Hubs
         {
             await Clients.All.SendAsync("ReceiveMessage", userName,  message);
         }
+        public async Task SendGameOver(int room)
+        {
+        // Notify all clients in the room that the game is over
+            await Clients.OthersInGroup($"Room {room}").SendAsync("ReceiveGameOverWin");
+        }
+
     }
 }

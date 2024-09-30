@@ -1,4 +1,6 @@
-﻿@* 
+<!--
+PROJECT 1
+===================================================================================================================
 Program Name: Index
 Description: Provides functionality on the webpage for different game states
 Inputs: current game state, username, tiles selected by players, ships
@@ -6,7 +8,20 @@ Outputs: different board states, players ships
 Other sources: Chat GPT, Reddit, StackOverflow
 Authors: John Mosley, Paul Dykes, Spencer Addis, Willem Battey, Aryamann Zutshi
 Creation Date: September 10, 2024
-*@
+
+PROJECT 2
+===================================================================================================================
+Program: Single Player Battleship in Index
+Description: Modify last group's game to include a single player option. The player will play against a computer
+that can play in easy, medium, or hard mode. Sound effects are added for the player(s) enjoyment.
+Inputs: username, game state, tiles selected by players, ship count, difficulty level,
+player/computer's board/ships/shots
+Outputs: Board states, sound effects, game over state, player/computer's shots/outcome
+Other Sources: StackOverflow, YouTube, ChatGPT
+New Authors: Abhishek Bhatt, Samuel Buehler, Collins Gatimi, Mikaela Navarro, Andrew Vanderwerf
+Date Created: 09/19/24
+Last Modified: 09/29/24
+-->
 
 @page "/"
 @using Microsoft.AspNetCore.SignalR.Client
@@ -16,61 +31,57 @@ Creation Date: September 10, 2024
 @inject IJSRuntime JS
 
 <!-- display current gamestate as page title -->
-<PageTitle>@currentGameState</PageTitle>
-
-<!-- sidebar where ships are located along with button to toggle -->
-<div class="sidebar @(isSidebarOpen ? "open" : "")">
-    <Sidebar Ships="ships" HubConnection="hubConnection" UserName="@userName"/>
-</div>
-
-<button class="toggle-button" @onclick="ToggleSidebar"></button>
+<PageTitle>Battleship! - @currentGameState</PageTitle>
 
 <!-- display your and opponents name at top of screen -->
-<div class="game-area @(isSidebarOpen ? "shifted" : "")">
+<div class="game-area">
+    <!-- Displays a "Leave Game" button when the player is in an active Room. -->
     <div class="leave">
         <button @onclick="LeaveRoom" hidden="@(room == 0)">Leave Game</button>
     </div>
-
     <div class="player-info">
-
         <div class="player-name">
             <h3>Your Name: @userName</h3>
         </div>
-
         <div class="opponent-name">
             <h3>Opponent: @opponent</h3>
         </div>
-
     </div>
 
-<!-- initial game state when page is launched -->
-@if ((currentGameState == GameState.Initial || userName == "") && room == 0)
+    <!-- initial game state when page is launched -->
+    @if ((currentGameState == GameState.Initial || userName == "") && room == 0)
     {
         <div class="name-entry-container">
             <div class="welcome-header">
-                <h2>Welcome to Battleship</h2>
+                <h2>Welcome to Battleship!</h2>
             </div>
             <div class="friends-header">
-                <h2><span>Play</span> with Your Friends</h2>
+                <h2><span>Play</span> with Your Friends!</h2>
             </div>
             <div class="enemies-header">
-                <h2><span>Destroy</span> Your Enemies</h2>
+                <h2><span>Destroy</span> Your Enemies!</h2>
             </div>
             <div class="name-entry-box">
-                <label>
-                    Enter your name:
-                </label>
+                <label>Enter your username:</label>
                 @* Box to enter username *@
-                <input @bind="userName" placeholder="Enter Your Name..." />
+                <input @bind="userName" placeholder="username" />
                 @* Checkbox to enable single-player *@
-                <div>
-                    <input type="checkbox" id="playWithComp" name="playWithComp" value="playWithComp" @bind="playAgainstComp"/>
-                    <label for="playWithComp">Computer Opponent</label>
-                </div>
+                <label>
+                    <input type="checkbox" name="playWithComp" @bind="playAgainstComp">
+                    Computer Opponent
+                </label>
+                <br>
                 @* Play button to change GameState *@
                 <button class="play-buton" @onclick="(() => {
-                    currentGameState = GameState.ChooseRoom;
-                    InvokeAsync(StateHasChanged);
+                    if (playAgainstComp == false) { // If playing against human:
+                        currentGameState = GameState.ChooseRoom;
+                        InvokeAsync(StateHasChanged);
+                    }
+                    else // If playing against computer:
+                    {
+                        JoinRoom(-1);
+                        InvokeAsync(StateHasChanged);
+                    }
                 })">Play</button>
             </div>
         </div>
@@ -100,9 +111,43 @@ Creation Date: September 10, 2024
     @if (currentGameState == GameState.PickShips)
     {
         <div class="num-ships">
-            <label>Enter number of ships:</label>
-            <input @bind="shipLimit" />
-            <button @onclick="SendShipNum">Enter</button>
+            <label>Enter number of ships (between 1 and 5):</label>
+            <input type="number" min="1" max="5" @bind="shipLimit">
+            <button @onclick="(() => {
+                if (shipLimit > 0 && shipLimit < 6) {
+                    if (room != -1)
+                    {
+                        InvokeAsync(SendShipNum);
+                    }
+                    else
+                    {
+                        ships = new Ship[shipLimit]; // ship array based on number of ships
+                        currentGameState = GameState.Setup;
+                    }
+                }
+            })" disabled="@(shipLimit <= 0 || shipLimit > 5 || (room == -1 && !(isEasySelected || isMediumSelected || isHardSelected)))">Deploy @shipLimit Ships</button>
+        </div>
+    }
+
+    @if (currentGameState == GameState.PickShips && room == -1)
+    {
+        opponent = "COM";
+        <div>
+            @* Allow player to choose COM difficulty. *@
+            <p>Choose difficulty:</p>
+
+            @* Player chooses Easy mode, value 0 *@            
+            <label>
+                <input type="checkbox" checked="@isEasySelected" @onclick="() => SelectDifficulty(0)"> Easy
+            </label>
+            @* Player chooses Medium mode, value 1 *@  
+            <label>
+                <input type="checkbox" checked="@isMediumSelected" @onclick="() => SelectDifficulty(1)"> Medium
+            </label>
+            @* Player chooses Hard mode, value 2 *@  
+            <label>
+                <input type="checkbox" checked="@isHardSelected" @onclick="() => SelectDifficulty(2)"> Hard
+            </label>
         </div>
     }
 
@@ -113,147 +158,176 @@ Creation Date: September 10, 2024
             <p>@opponent is choosing the number of ships<span class="first">.</span><span class="second">.</span><span class="third">.</span></p>
         </div>
     }
+    @if (currentGameState == GameState.GameOver)
+    {
+        <div class="game-over-message">
+            <p>@gameOverMessage</p>
+        @if (canLeaveRoom)
+        {
+            <button class="leave-room-btn" @onclick="LeaveRoom">Leave Room</button>
+        }
+        </div>
+    }
 
     <div class="boards-wrapper">
-    <!-- display main board -->
-    @if (userName != "" && (currentGameState == GameState.Setup || currentGameState == GameState.Playing || currentGameState  == GameState.Waiting))
-    {
-        // display either player is to be placing ships or "your board" if ships have been placed
-        // -Samuel : This seems to be an attempt at a header, but it doesn't actually seem to work.
-        <div class="user-board @(currentGameState == GameState.Playing ? "minimized" : "")" hidden="@(currentGameState != GameState.Setup && currentGameState != GameState.Playing && currentGameState != GameState.Waiting)">
-        <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
-
-        <!-- display column names -->
-        <!-- -Samuel : We can probably find a better solution than this. These numbers don't line up with the rest of the board. -->
-        <div class="column-headers">
-            <p /><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p>
-        </div>
-        
-        @for (int y = 0; y < 10; y++)  // display board as rows of buttons (x, y) 
+        <!-- display main board -->
+        @if (userName != "" && (currentGameState == GameState.Setup || currentGameState == GameState.Playing || currentGameState  == GameState.Waiting))
         {
-            <div class="row">
-                <button class="letter" disabled>@letters[y]</button>
-                @for (int x = 0; x < 10; x++)
-                {
-                    int xCoord = x;//Capturing the x and Y coordinates so that their values at button creation are preserved.
-                    int yCoord = y;
-                    <button class="@(GetCellClass(xCoord, yCoord))"
-                            @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
-                            @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
-                            @onmouseout='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) HideShipPreview(xCoord, yCoord, isShipHorizontal); })'></button>
-                }
+            // display either player is to be placing ships or "your board" if ships have been placed
+            <div class="user-board @(currentGameState == GameState.Playing ? "minimized" : "")" hidden="@(currentGameState != GameState.Setup && currentGameState != GameState.Playing && currentGameState != GameState.Waiting)">
+                <h3>@(currentGameState == GameState.Setup ? "Place your ships!" : "Your Board")</h3>
+
+                <!-- Display Personal Board -->
+                <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+                    <div class="grid-square"></div>
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <div class="grid-square">@i</div>
+                    }
+                    @for (int y = 0; y < 10; y++)
+                    {
+                        <div class="grid-square">@letters[y]</div>
+                        @for (int x = 0; x < 10; x++)
+                        {
+                            int xCoord = x; // Preserves x coordinate
+                            int yCoord = y; // Preserves y coordinate
+                            <button class="@(GetCellClass(xCoord, yCoord))"
+                                    @onclick='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) PlaceShip(xCoord, yCoord, isShipHorizontal);})'
+                                    @onmouseover='(() => {if(currentGameState == GameState.Setup && (shipCount < shipLimit)) ShowShipPreview(xCoord, yCoord, isShipHorizontal); })'
+                                    @onmouseout='(() => { if(currentGameState == GameState.Setup && (shipCount < shipLimit)) HideShipPreview(xCoord, yCoord, isShipHorizontal); })'></button>
+                        }
+                    }
+                </div>
+
+                @* button to toggle ship orientation (vertical/horizontal) *@
+                <div class="user-buttons">
+                    <div>
+                        <button @onclick="ToggleShipOrientation">Switch to @((!isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+                    </div>
+                    @* button to start game *@
+                    @if (currentGameState == GameState.Setup)
+                    {
+                        if (room == -1)
+                        {
+                            <button class="square" @onclick="StartSingleplayer">Begin</button>
+                        }
+                        else
+                        {
+                            <button class="square" @onclick="SendReadyMessage">Ready</button>
+                        }
+                    }
+                </div>
             </div>
         }
 
-        @* button to toggle ship orientation (vertical/horizontal) *@
-        <div class="user-buttons">
-            <div>
-                <button @onclick="ToggleShipOrientation">Switch to @((isShipHorizontal ? "Horizontal" : "Vertical")) Placement</button>
+        <!-- display opponents board -->
+        @if (player2Ready && room != 0)
+        {
+            <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")">
+                @* The "enlarged" thing is a way of telling the player it's their turn. *@
+                <h3>@(opponent)'s Board</h3>
+                @* The following displays the opponent's board, without the location of their ships. *@
+                <div style="display: grid; grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;">
+                    <div class="grid-square"></div>
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        <div class="grid-square">@i</div>
+                    }
+                    @for (int y = 0; y < 10; y++)
+                    {
+                        <div class="grid-square">@letters[y]</div>
+                        @for (int x = 0; x < 10; x++)
+                        {
+                            int xCoord = x; // Preserves x coordinate
+                            int yCoord = y; // Preserves y coordinate
+                            <button class="@(OpponentBoardInfo(xCoord, yCoord))" @onclick='(() => { SetCoordinates(xCoord, yCoord); })'></button>
+                        }
+                    }
+                </div>
             </div>
-
-            @* button to start game *@
-            @if (currentGameState == GameState.Setup)
-            {
-                <button class="square" @onclick="SendReadyMessage">Ready</button>
-            }
-
-            @* button to leave game *@
-            <!-- Leave game button seems to be somewhere else, despite the above comment. -->
-        </div>
+            <!-- Display selected coordinates in a text box in the top right. -->
+            <div class="fire-control">
+                <button @onclick="(() => {
+                    if (room == -1)
+                    {
+                        Fire_Singleplayer();    // Allow single player to fire
+                    }
+                    else
+                    {
+                        Fire();
+                    }
+                })" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
+                <!-- Display current selected coordinates -->
+                <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
+            </div>
+            <!-- Displays a list of previous moves. -->
+            <ul id="messagesList">
+                @foreach (var move in moves)
+                {
+                    <li>@move</li>
+                }
+            </ul>
+        }
     </div>
-}
+</div>
 
-<!-- display opponents board -->
-@if (player2Ready && room != 0)
+@code
 {
-    <div class="opponent-board @(currentGameState == GameState.Playing ? "enlarged" : "")">
-        <h3>@(opponent)'s Board</h3>
-        <!-- display column labels -->
-        <div class="column-headers">
-            <p /><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p>
-        </div>
-
-        <!-- set up game board for opponent as rows of buttons -->
-        @for (int y = 0; y < 10; y++)
-        {
-            <div class="row">
-                <button class="letter" disabled>@letters[y]</button>
-                @for (int x = 0; x < 10; x++)
-                {
-                    int xCoord = x;//Capturing x and y coordinates so that their values at button creation are preserved.
-                    int yCoord = y;
-                    // button to select coord for firing
-                    <button 
-                    class="@(OpponentBoardInfo(xCoord, yCoord))"
-                    @onclick='(() => {
-                        SetCoordinates(xCoord, yCoord);
-                    })'></button>
-                }
-            </div>
-        }
-    </div>
-
-        <!-- Display selected coordinates in a text box in the top right. -->
-        <!-- Samuel - : For some reason, this shows numerical coordinates, and ignores that the Y axis uses letters. -->
-        <div class="fire-control">
-            <button @onclick="Fire" disabled="@(!isTurn || !coordinates.HasValue || opponentDefaultBoard[coordinates.Value.x, coordinates.Value.y])">Fire</button>
-
-            <!-- Display current selected coordinates -->
-            <input type="text" value="@GetCoordinatesText()" readonly style="margin-left: 10px; width: 100px;" />
-        </div>
-
-        <ul id="messagesList">
-            @foreach (var move in moves)
-            {
-                <li>@move</li>
-            }
-        </ul>
-}
-</div>
-</div>
-@code {
     #region Declarations
-    #region Page Status
-    private bool isSidebarOpen = false;
-    #endregion
-    #region Connection Information
-    private HubConnection? hubConnection;
-    public bool IsConnected => hubConnection?.State == HubConnectionState.Connected;
-    public string[] roomStatuses = new string[5] { "Join Room 1", "Join Room 2", "Join Room 3", "Join Room 4", "Join Room 5" };
-    private int room = 0;
-    private bool player2Ready = false;
-    #endregion
-    #region Player Information
-    private List<string> moves = new List<string>();
-    private string userName = "";
-    private (int x, int y)? coordinates = (0, 0);
-    #endregion
-    #region Boards
-    // Game board tracking (10x10 grids for both players)
-    private string letters = "ABCDEFGHIJ";
-    private bool[,] playerBoard = new bool[10, 10]; // Stores player's ships
-    private bool[,] previewBoard = new bool[10, 10]; // Stores ship previews
-    private bool[,] opponentShots = new bool[10, 10]; // Stores the opponents previous shots
-    private int[,] shipHPs = new int[10, 10];
+        #region Page Status
+            //private bool isSidebarOpen = false; // Removed this as the sidebar was removed.
+        #endregion
+        #region Connection Information
+            private HubConnection? hubConnection;
+            public bool IsConnected => hubConnection?.State == HubConnectionState.Connected;
+            public string[] roomStatuses = new string[5] { "Join Room 1", "Join Room 2", "Join Room 3", "Join Room 4", "Join Room 5" };
+            private int room = 0;
+            private bool player2Ready = false; // Boolean that indicates Player2's ships are placed and they are ready.
+        #endregion
+        #region Player Information
+            private List<string> moves = new List<string>();
+            private string userName = "";
+            private (int x, int y)? coordinates = (0, 0);
+            private string gameOverMessage = string.Empty;  // Default value for the game over message
+            private bool canLeaveRoom = false;  // Default value for whether the player can leave the room
+        #endregion
+        #region Boards
+            // Game board tracking (10x10 grids for both players)
+            private string letters = "ABCDEFGHIJ";
 
-    private bool[,] opponentBoard = new bool[10, 10]; // Stores hits/misses on opponent
-    private bool[,] opponentDefaultBoard = new bool[10, 10]; // A default state for the opponents board when neither hit nor miss is recorded
-    #endregion
-    #region Game State Info
-    private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby, SPPickShips, SPSetup, SPPlaying, SPWaiting, SPGameOver }
-    private GameState currentGameState = GameState.Initial;
-    private string currentPlayer = "";
-    private string opponent = "";
-    private bool isPlayer1 = false; // whether player is player1
-    #endregion
-    #region Ship Parameters
-    private Ship[]? ships; // array to keep track of all ships
-    private bool isShipHorizontal = true; // To manage ship placement direction
-    private int shipCount = 0; // number of ships
-    private static int shipLimit; // to limit how many ships are out
-    private bool isTurn = false; //keep track of players turn
-    private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
-    #endregion
+            // Not sure if computerBoard should be here or in Ship Parameters, will probably need to move
+            private bool [,] computerBoard = new bool[10, 10]; // Stores computer's ships
+
+            private bool[,] playerBoard = new bool[10, 10]; // Stores player's ships
+            private bool[,] previewBoard = new bool[10, 10]; // Stores ship previews
+            private bool[,] playerShots = new bool[10, 10]; // Single-Player Only : Stores the player's previous shots at the COM
+            private bool[,] computerShots = new bool[10, 10]; // Single-Player Only : Stores the COM's previous shots at the player
+            private bool[,] opponentShots = new bool[10, 10]; // Stores the opponents previous shots
+            private int[,] shipHPs = new int[10, 10];
+            private bool[,] opponentBoard = new bool[10, 10]; // Stores hits/misses on opponent
+            private bool[,] opponentDefaultBoard = new bool[10, 10]; // A default state for the opponents board when neither hit nor miss is recorded
+        #endregion
+        #region Game State Info
+            private enum GameState { Initial, ChooseRoom, PickShips, Setup, Playing, Waiting, GameOver, InLobby }
+            private GameState currentGameState = GameState.Initial;
+            private string currentPlayer = "";
+            private string opponent = "";
+            private bool isPlayer1 = false; // whether player is player1
+        #endregion
+        #region Ship Parameters
+            private Ship[]? ships; // array to keep track of all ships
+            private bool isShipHorizontal = true; // To manage ship placement direction
+            private int shipCount = 0; // number of ships
+            private int shipCount2 =0;
+            private static int shipLimit; // to limit how many ships are out
+            private bool isTurn = false; //keep track of players turn
+            private bool playAgainstComp = false; // Boolean that dictates whether to do single-player.
+            private int comDifficulty = 0; // Designates computer opponent difficulty. 0 = easy (random shots), 1 = medium (random shots until hit; then orthogonal), 2 = hard (cheater)
+            private Ship[]? computerShips; //array to keep track of the computer's ships
+            private bool isEasySelected = false;    // Boolean to help with computer difficulty
+            private bool isMediumSelected = false;  // Boolean to help with computer difficulty
+            private bool isHardSelected = false;    // Boolean to help with computer difficulty
+        #endregion
     #endregion
 
     // to reset game board, loop through all tiles in board
@@ -279,6 +353,7 @@ Creation Date: September 10, 2024
         opponent = "";
         isShipHorizontal = true;
         shipCount = 0;
+        shipCount2 = 0;
         shipLimit = 0;
         isTurn = false;
 
@@ -288,6 +363,9 @@ Creation Date: September 10, 2024
         ResetBoard(opponentBoard);
         ResetBoard(opponentDefaultBoard);
         ResetBoard(opponentShots);
+        ResetBoard(computerBoard);
+        ResetBoard(computerShots);
+        ResetBoard(playerShots);
 
         // remove recorded moves
         while (moves.Count != 0)
@@ -295,7 +373,6 @@ Creation Date: September 10, 2024
             moves.RemoveAt(moves.Count - 1);
         }
     }
-
 
     #region Modifier Functions
     private void SetCoordinates(int x, int y) //Sets the value of the coordinates tuple for later use
@@ -306,193 +383,616 @@ Creation Date: September 10, 2024
     {
         isShipHorizontal = !isShipHorizontal;
     }
-    private void ToggleSidebar()
+    /*private void ToggleSidebar()
     {
         isSidebarOpen = !isSidebarOpen; //Toggles sidebar visibility
     }
+    */
 
-    #region Board Modification
-    #region Player Board
-    private string GetCellClass(int x, int y)
-    {
-        /*Changes the type of grid space depending on whether or not a ship is currently there.
-         * Effectively this allows for the preview to not override existing ships on the setup board.
-        */
-        if (playerBoard[x, y] && !opponentShots[x, y])//If there is a ship on this space and the opponent has not shot here yet
-        {
-            return "ship";//The space is of type ship
-        }
-        else if (playerBoard[x, y] && opponentShots[x, y])//If there is a ship on this space, and the opponent has shot here
-        {
-            return "hit";//The ship has been destroyed
-        }
-        else if (!playerBoard[x, y] && opponentShots[x, y])//If the opponent has shot a tile that does not have a ship on it
-        {
-            return "miss";//The opponent has missed
-        }
-        else if (previewBoard[x, y])//If the space has a preview of a ship
-        {
-            return "preview";//The space is of type preview
-        }
-        else//If none are true
-        {
-            return "square";//The space is blank
-        }
-    }
-
-    // displays a preview of the ship placement starting at the given coordinates and in the chosen orientation
-    private void ShowShipPreview(int startX, int startY, bool isHorizontal)
-    {
-        // ship length depending on what ships have already been placed
-        int shipLength = shipCount + 1;
-
-        // horizontal ship preview
-        if (isHorizontal)
-        {
-            for (int i = 0; i < shipLength; i++)
+        #region Board Modification
+            #region Player Board
+            private string GetCellClass(int x, int y)
             {
-                if (startX + i < 10)
+                /*
+                * Changes the type of grid space depending on whether or not a ship is currently there.
+                * Effectively this allows for the preview to not override existing ships on the setup board.
+                */
+                //Console.WriteLine( playerBoard[0,0] && (opponentShots[0,0] || computerShots[0,0]) );
+                if (playerBoard[x, y] && (!opponentShots[x, y] && !computerShots[x,y]) ) //If there is a ship on this space and the opponent has not shot here yet
                 {
-                    previewBoard[startX + i, startY] = true; // mark which cells the ship is to take
+                    return "ship"; //The space is of type ship
+                }
+                else if (playerBoard[x, y] && (opponentShots[x, y] || computerShots[x, y])) //If there is a ship on this space, and the opponent or computer has shot here
+                {
+                    return "hit"; //The ship has been destroyed
+                }
+                else if (!playerBoard[x, y] && (opponentShots[x, y] || computerShots[x, y])) //If the opponent has shot a tile that does not have a ship on it
+                {
+                    return "miss"; //The opponent has missed
+                }
+                else if (previewBoard[x, y])//If the space has a preview of a ship
+                {
+                    return "preview"; //The space is of type preview
+                }
+                else //If none are true
+                {
+                    return "square"; //The space is blank
                 }
             }
-        }
-        // vertical ship preview
-        else
-        {
-            for (int i = 0; i < shipLength; i++)
-            {
-                if (startY + i < 10)
-                {
-                    previewBoard[startX, startY + i] = true; // mark which cells the ship is to take
-                }
-            }
-        }
-    }
 
-    // hides the ship preview from the board clearing preview cells
-    private void HideShipPreview(int startX, int startY, bool isHorizontal)
-    {
-        int shipLength = shipCount + 1;
-
-        // remove horizontal preview
-        if (isHorizontal)
-        {
-            for (int i = 0; i < shipLength; i++)
+            // displays a preview of the ship placement starting at the given coordinates and in the chosen orientation
+            private void ShowShipPreview(int startX, int startY, bool isHorizontal)
             {
-                if (startX + i < 10)
-                {
-                    previewBoard[startX + i, startY] = false; // toggle off preview
-                }
-            }
-        }
-
-        // for vertical ships
-        else
-        {
-            for (int i = 0; i < shipLength; i++)
-            {
-                if (startY + i < 10)
-                {
-                    previewBoard[startX, startY + i] = false; // toggle off preview
-                }
-            }
-        }
-    }
-
-    // places a ship at given coords and updates the board and ship count
-    private void PlaceShip(int startX, int startY, bool isHorizontal)
-    {
-        int shipLength = shipCount + 1; // Determine ship length based on the current count
-        bool canPlace = true; // Flag to track if placement is possible
-
-        // Check if ship fits and if the cells are free
-        if (isHorizontal)
-        {
-            if (startX + shipLength <= 10) // Check if it fits horizontally
-            {
-                for (int i = 0; i < shipLength; i++)
-                {
-                    if (playerBoard[startX + i, startY]) // Check for overlap
-                    {
-                        canPlace = false;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                canPlace = false;
-            }
-        }
-        else // Vertical placement
-        {
-            if (startY + shipLength <= 10) // Check if it fits vertically
-            {
-                for (int i = 0; i < shipLength; i++)
-                {
-                    if (playerBoard[startX, startY + i]) // Check for overlap
-                    {
-                        canPlace = false;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                canPlace = false;
-            }
-        }
-
-        // Place the ship if there is no overlap
-        if (canPlace)
-        {
-            for (int i = 0; i < shipLength; i++)
-            {
+                // ship length depending on what ships have already been placed
+                int shipLength = shipCount + 1;
+                // horizontal ship preview
                 if (isHorizontal)
-                    playerBoard[startX + i, startY] = true; // Mark cells as occupied
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (startX + i < 10)
+                        {
+                            previewBoard[startX + i, startY] = true; // mark which cells the ship is to take
+                        }
+                    }
+                }
+                // vertical ship preview
                 else
-                    playerBoard[startX, startY + i] = true; // Mark cells as occupied
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (startY + i < 10)
+                        {
+                            previewBoard[startX, startY + i] = true; // mark which cells the ship is to take
+                        }
+                    }
+                }
             }
-            shipCount++; // Increment ship count after successful placement
-        }
-    }
 
-    #endregion
-    #region Opponent Board
-    // return the css class for the opponents board tiles based on the game state
-    private string OpponentBoardInfo(int x, int y)
-    {
+            // hides the ship preview from the board clearing preview cells
+            private void HideShipPreview(int startX, int startY, bool isHorizontal)
+            {
+                int shipLength = shipCount + 1;
+                // remove horizontal preview
+                if (isHorizontal)
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (startX + i < 10)
+                        {
+                            previewBoard[startX + i, startY] = false; // toggle off preview
+                        }
+                    }
+                }
+                // for vertical ships
+                else
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (startY + i < 10)
+                        {
+                            previewBoard[startX, startY + i] = false; // toggle off preview
+                        }
+                    }
+                }
+            }
 
-        if (coordinates.HasValue && coordinates.Value.x == x && coordinates.Value.y == y && !opponentDefaultBoard[x, y])
+            // places a ship at given coords and updates the board and ship count
+            private void PlaceShip(int startX, int startY, bool isHorizontal)
+            {
+                int shipLength = shipCount + 1; // Determine ship length based on the current count
+                List<(int x, int y)> coords = new List<(int x, int y)>(); // list ship coords
+                bool canPlace = true; // Flag to track if placement is possible
+                // Check if ship fits and if the cells are free
+                if (isHorizontal)
+                {
+                    if (startX + shipLength <= 10) // Check if it fits horizontally
+                    {
+                        for (int i = 0; i < shipLength; i++)
+                        {
+                            if (playerBoard[startX + i, startY]) // Check for overlap
+                            {
+                                canPlace = false;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        canPlace = false;
+                    }
+                }
+                else // Vertical placement
+                {
+                    if (startY + shipLength <= 10) // Check if it fits vertically
+                    {
+                        for (int i = 0; i < shipLength; i++)
+                        {
+                            if (playerBoard[startX, startY + i]) // Check for overlap
+                            {
+                                canPlace = false;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        canPlace = false;
+                    }
+                }
+                // Place the ship if there is no overlap
+                if (canPlace)
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (isHorizontal) {
+                            playerBoard[startX + i, startY] = true; // Mark cells as occupied
+                            coords.Add((startX + i, startY)); // add coords to the ships position
+                        }
+                        else {
+                            playerBoard[startX, startY + i] = true; // Mark cells as occupied
+                            coords.Add((startX, startY+i)); // add coords to the ships position
+                        }
+                    }
+                    shipCount++; // Increment ship count after successful placement
+                    ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
+                }
+            }
+            #endregion
+            #region Opponent Board
+                // return the css class for the opponents board tiles based on the game state
+                private string OpponentBoardInfo(int x, int y)
+                {
+                    if (coordinates.HasValue && coordinates.Value.x == x && coordinates.Value.y == y && !opponentDefaultBoard[x, y])
+                    {
+                        return "hit-preview"; // display preview where the player is about to fire
+                    }
+                    else if ( (opponentDefaultBoard[x, y] && opponentBoard[x, y]) || (computerBoard[x,y] && playerShots[x,y]) )
+                    {
+                        return "hit"; // display hit was made on this tile
+                    }
+                    else if ( (opponentDefaultBoard[x, y] && !opponentBoard[x, y]) || (!computerBoard[x,y] && playerShots[x,y]) )
+                    {
+                        return "miss"; // display miss was made on this tile
+                    }
+                    else
+                    {
+                        return "square"; // display no activity in this tile
+                    }
+                }
+            #endregion
+        #endregion
+    #endregion
+
+    #region Singleplayer Functions
+        // Sets up computer's difficulty
+        private void SelectDifficulty(int difficulty)
         {
-            return "hit-preview"; // display preview where the player is about to fire
+            isEasySelected = difficulty == 0;
+            isMediumSelected = difficulty == 1;
+            isHardSelected = difficulty == 2;
+
+            comDifficulty = difficulty;
+            Console.WriteLine($"Selected difficulty: {comDifficulty}");
         }
 
-        else if (opponentDefaultBoard[x, y] && opponentBoard[x, y])
+        private void StartSingleplayer()
+        // Sets up COM opponent's board, then declares itself as ready.
         {
-            return "hit"; // display hit was made on this tile
+            player2Ready = true;
+            isTurn = true;
+            computerShips = new Ship[shipLimit];
+            Random random = new Random();
+
+            for (int i = 0; i < shipLimit; i++)
+            {
+                bool shipPlaced = false;
+                int shipLength = i + 1;
+
+                while (!shipPlaced)
+                {
+                    int startX = random.Next(0, 10);
+                    int startY = random.Next(0, 10);
+                    bool isHorizontal = random.NextDouble() >= 0.5;
+
+                    if (tryPlaceShips(startX, startY, shipLength, isHorizontal))
+                    {
+                        shipPlaced = true;
+                        Console.WriteLine($"Computer placed ship starting at ({TranslateCoordsToAlphaNum(startX,startY)}), horizontal: {isHorizontal}, and length: {shipLength}");
+                    }
+                }
+            }
         }
-        else if (opponentDefaultBoard[x, y] && !opponentBoard[x, y])
+
+        // Check if ship placement is valid
+        private bool tryPlaceShips(int startX, int startY, int shipLength, bool isHorizontal)
         {
-            return "miss"; // display miss was made on this tile
+            List<(int x, int y)> coords = new List<(int x, int y)>(); 
+            bool canPlace = true; 
+
+            // Check if ship can fit horizontally on board and not overlapping
+            if (isHorizontal)
+            {
+                if (startX + shipLength <= 10) 
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (computerBoard[startX + i, startY])
+                        {
+                            canPlace = false;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    canPlace = false;
+                }
+            }
+            // Check if ship can fit vertically on board and not overlapping
+            else 
+            {
+                if (startY + shipLength <= 10) 
+                {
+                    for (int i = 0; i < shipLength; i++)
+                    {
+                        if (computerBoard[startX, startY + i]) 
+                        {
+                            canPlace = false;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    canPlace = false;
+                }
+            }
+            // If there's no overlapping, can place ship, mark and store
+            if (canPlace)
+            {
+                for (int i = 0; i < shipLength; i++)
+                {
+                    if (isHorizontal) {
+                        computerBoard[startX + i, startY] = true; 
+                        coords.Add((startX + i, startY)); 
+                    }
+                    else {
+                        computerBoard[startX, startY + i] = true; 
+                        coords.Add((startX, startY+i)); 
+                    }
+                }
+                
+                    shipCount2++;
+                    computerShips[shipCount2-1] = new Ship(shipCount2 + 1, shipCount2, $"Ship: {shipLength}", coords);
+                     // Increment ship count after successful placement
+                /*
+                shipCount++; // Increment ship count after successful placement
+                ships[shipCount - 1] = new Ship(shipCount, shipCount, $"Ship: {shipLength}", coords);
+                */
+                return true;
+            }
+            return false;
         }
-        else
+
+        //Allow single player to fire
+        private async Task Fire_Singleplayer()
+        {   
+            if(currentGameState != GameState.GameOver){    
+                Console.WriteLine("Player's turn");
+                isTurn = true;
+
+                if (coordinates.HasValue)
+                {
+                    // Player's shot
+                    int x = coordinates.Value.x;
+                    int y = coordinates.Value.y;
+                    bool isPlayer = true;
+                    await JS.InvokeVoidAsync("playSound", "fire");
+                    if (playerShots[x,y] == false) // If shot has not been attempted before...
+                    {
+                        if (await HitChecker(isPlayer, x, y)) // Hit
+                        {
+                            Console.WriteLine($"Player hit COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+                        }
+                        else // Miss
+                        {
+                            Console.WriteLine($"Player missed COM's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+                        }
+                        playerShots[x,y] = true; // Update with the player's shot towards COM
+
+                        // Reset player's shot coordinates
+                        coordinates = null;
+                        InvokeAsync(StateHasChanged);
+                        // Player's turn ended, computer's turn
+                        if(currentGameState != GameState.GameOver){
+                            isTurn = false;
+                            ComputerTurn();
+                            InvokeAsync(StateHasChanged);
+                    }
+                }
+            }
+        }
+        }
+
+        private async Task<bool> HitChecker(bool isPlayer, int x, int y)
         {
-            return "square"; // display no activity in this tile
+            Ship? hitShip = null;
+
+            // If isPlayer is the single player, check if they made a hit
+            if (isPlayer)
+            {
+                /*if (computerBoard[x, y])    // Player hit COM
+                {
+                    return true;
+                }
+                else {                      // Player missed
+                    return false;
+                }*/
+                if (computerShips is not null)
+                {
+                foreach (var ship in computerShips)
+                {
+                    if (ship is not null && ship.IsHit(x, y))
+                    {
+                        hitShip = ship;
+                        hitShip.DeductHP();
+                        await JS.InvokeVoidAsync("playSound", "hit");
+                        Console.WriteLine("hp deducted from comp ship");
+                        if (hitShip.IsDestroyed())
+                        {
+                            await JS.InvokeVoidAsync("playSound", "sunk");
+                            if(AreAllCPUShipsSunk(computerShips))
+                            {
+
+                                // Set the game state to GameOver for the player who received the shot
+                                currentGameState = GameState.GameOver;
+                                moves.Add("All CPU ships have been sunk! You won!");
+                                await JS.InvokeVoidAsync("pauseBackgroundMusic");
+                                await JS.InvokeVoidAsync("playSound", "win");
+                                InvokeAsync(StateHasChanged); // Refresh UI
+                            }
+                        }
+                        InvokeAsync(StateHasChanged);
+                        return true;
+                    }
+                }
+                }
+                return false;
+            }
+            else    // Check if computer hit successfully
+            {
+                /*if (playerBoard[x, y])      // COM hit Player
+                {
+                    return true;
+                }
+                else {                      // COM missed Player
+                    return false;
+                }*/
+                foreach (var ship in ships)
+                {   
+                    if (ship is not null && ship.IsHit(x,y))
+                    {   
+                        hitShip= ship;
+                        hitShip.DeductHP();
+                        await JS.InvokeVoidAsync("playSound", "hit");
+                        Console.WriteLine("hp deducted from player ship");
+                        InvokeAsync(StateHasChanged);
+                        if (hitShip.IsDestroyed())
+                        {
+                            await JS.InvokeVoidAsync("playSound", "sunk");
+                            if(AreAllShipsSunk(ships))
+                            {
+
+                                // Set the game state to GameOver for the player who received the shot
+                                currentGameState = GameState.GameOver;
+                                moves.Add("All your ships have been sunk! You lost!");
+                                await JS.InvokeVoidAsync("pauseBackgroundMusic");
+                                await JS.InvokeVoidAsync("playSound", "lost");
+                                InvokeAsync(StateHasChanged); // Refresh UI
+                            }
+                        }
+                        InvokeAsync(StateHasChanged);
+                        return true;
+                    }
+                    
+                }
+                return false;
+            }
+            
         }
-    }
-    #endregion
-    #endregion
+        private async Task ComputerTurn()
+        {
+            Console.WriteLine("Computer's Turn");
+            
+            // Computer's random shot
+            bool isPlayer = false;
+            bool shotIsUnique = false; // Bool to evaluate if the comp's generated target coords are a place it hasn't shot at yet.
+            bool foundPreviousHit = false; // Check for a previous hit
+            int consecutiveHits = 0; // Track the number of consecutive hits
+            string direction = ""; // Variable to store the direction of shots
+            int x = 0;
+            int y = 0;
+
+            // If in EASY MODE: computer shoots randomly
+            if (comDifficulty == 0)
+            {
+                Random random = new Random();
+                x = random.Next(0, 10);
+                y = random.Next(0, 10);
+
+                while (!shotIsUnique)
+                {
+                    if (computerShots[x,y] == false) // If comp hasn't shot here before...
+                    {
+                        shotIsUnique = true;
+                        InvokeAsync(StateHasChanged);
+                    }
+                    else // If it has shot here before, generate new coords and try again.
+                    {
+                        x = random.Next(0, 10);
+                        y = random.Next(0, 10);
+                        InvokeAsync(StateHasChanged);
+                    }
+                }
+                InvokeAsync(StateHasChanged);
+            }
+            // If in MEDIUM MODE: once computer makes a hit, continue to hit orthogonally, otherwise shoot randomly
+            else if (comDifficulty == 1)
+            {
+                if (foundPreviousHit && consecutiveHits >= 2)
+                {
+                    // Continue shooting in the same direction if two consecutive hits were made
+                    if (direction == "up" && x > 0 && !computerShots[x - 1, y])
+                    {
+                        x--;
+                    }
+                    else if (direction == "down" && x < 9 && !computerShots[x + 1, y])
+                    {
+                        x++;
+                    }
+                    else if (direction == "left" && y > 0 && !computerShots[x, y - 1])
+                    {
+                        y--;
+                    }
+                    else if (direction == "right" && y < 9 && !computerShots[x, y + 1])
+                    {
+                        y++;
+                    }
+                    else
+                    {
+                        // If no valid move in the current direction, reset
+                        foundPreviousHit = false;
+                        consecutiveHits = 0;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 10 && !foundPreviousHit; i++)
+                    {
+                        for (int j = 0; j < 10 && !foundPreviousHit; j++)
+                        {
+                            // If there's a previous hit on the player's board, but the ship isn't destroyed yet
+                            if (computerShots[i, j] && playerBoard[i, j] && !opponentShots[i, j])
+                            {
+                                // Try shooting orthogonally (up, down, left, right)
+                                if (i > 0 && !computerShots[i - 1, j]) 
+                                { 
+                                    x = i - 1; y = j; 
+                                    foundPreviousHit = true; 
+                                    direction = "up";
+                                }
+                                else if (i < 9 && !computerShots[i + 1, j]) 
+                                { 
+                                    x = i + 1; y = j; 
+                                    foundPreviousHit = true; 
+                                    direction = "down";
+                                }
+                                else if (j > 0 && !computerShots[i, j - 1]) 
+                                { 
+                                    x = i; y = j - 1; 
+                                    foundPreviousHit = true; 
+                                    direction = "left";
+                                }
+                                else if (j < 9 && !computerShots[i, j + 1]) 
+                                { 
+                                    x = i; y = j + 1; 
+                                    foundPreviousHit = true; 
+                                    direction = "right";
+                                }
+                            }
+                        }
+                    }
+
+                    // If no previous hit or no orthogonal shots available, shoot randomly
+                    if (!foundPreviousHit)
+                    {
+                        Random random = new Random();
+                        while (!shotIsUnique)
+                        {
+                            x = random.Next(0, 10);
+                            y = random.Next(0, 10);
+                            if (!computerShots[x, y])
+                            {
+                                shotIsUnique = true;
+                            }
+                        }
+                    }
+                }
+                InvokeAsync(StateHasChanged);
+            }
+            // If in HARD MODE: computer can see player's ships, hit everytime
+            else if (comDifficulty == 2)
+            {
+                // Computer looks through player's board for a ship it hasn't hit
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if (playerBoard[i, j] && !computerShots[i, j])
+                        {
+                            // Computer has the coordinates of player's ship
+                            x = i;
+                            y = j;
+                            shotIsUnique = true;
+                            break;
+                        }
+                    }
+                    if (shotIsUnique)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            // Check computer's shot
+            if (await HitChecker(isPlayer, x, y)) // Hit
+            {
+                Console.WriteLine($"Computer hit player's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+            }  
+            else // Miss
+            {
+                Console.WriteLine($"Computer missed player's ship at ({TranslateCoordsToAlphaNum(x,y)})");
+            }
+            computerShots[x,y] = true; // Update with the COM's shot towards player
+
+            // Player's turn ended. Start computer's turn
+            isTurn = false;
+            Fire_Singleplayer();
+            InvokeAsync(StateHasChanged);
+        }
+
+        private void LeaveRoom()
+        {
+            if(room >= 1)
+            {
+                LeaveMultiplayer();
+            }
+            else
+            {
+                currentGameState = GameState.Initial;
+                Reset();
+                room = 0;
+                isTurn = false;
+                player2Ready = false;
+                opponent = "";
+            }
+        }
     #endregion
 
     #region Accessor Functions
     // Helper function to display the selected coordinates in the text box
     private string GetCoordinatesText()
     {
-        return coordinates.HasValue ? $"{coordinates.Value.x}, {coordinates.Value.y}" : "None";
+        return coordinates.HasValue ? $"{letters[coordinates.Value.y]} {coordinates.Value.x + 1}" : "None";
     }
     #endregion
+
+    // Helper function to translate (x,y) coords to (A0) alpha-numeric coords.
+    private string TranslateCoordsToAlphaNum(int x, int y)
+    {
+        return $"{letters[y]},{x + 1}";
+    }
 
     #region Networking Functionality
     //  runs when client connects
@@ -571,21 +1071,31 @@ Creation Date: September 10, 2024
         // update the page to show the new user
 
         // when a user and message are received from the connection...
+        hubConnection.On("ReceiveGameOverWin", async () =>
+        {
+            currentGameState = GameState.GameOver;
+            moves.Add("All opponent ships destroyed, you won!");
+            await JS.InvokeVoidAsync("pauseBackgroundMusic");
+            await JS.InvokeVoidAsync("playSound", "win");
+            InvokeAsync(StateHasChanged); // Refresh UI
+        });
 
         // when opponent fires shot
-        hubConnection.On<string, int, int>("ReceiveCoordinates", (user, x, y) =>
+        hubConnection.On<string, int, int>("ReceiveCoordinates", async (user, x, y) =>
         {
             opponentShots[x, y] = true; // record shot on own board
             currentGameState = GameState.Playing; // change game state to playing so it is current players turn
             Ship? hitShip = null;
 
             if (ships is not null)
-            {
+            {   
+                Console.WriteLine($"Length of ships array: {ships.Length}");
                 foreach (var ship in ships)
                 {
 
                     if (ship is not null && ship.IsHit(x, y))
                     {
+                        Console.WriteLine("test");
                         hitShip = ship;
                         break;
                     }
@@ -600,9 +1110,23 @@ Creation Date: September 10, 2024
                 // if health is completely depleted
                 if (hitShip.IsDestroyed())
                 {
+                    await JS.InvokeVoidAsync("playSound", "sunk");
                     var shipDestructionMessage = $"{hitShip.name} is destroyed!"; // display message in moves
                     moves.Add(shipDestructionMessage);
+
+                    if(AreAllShipsSunk(ships))
+                    {
+                        await hubConnection.SendAsync("SendGameOver", room);
+
+                        // Set the game state to GameOver for the player who received the shot
+                        currentGameState = GameState.GameOver;
+                        moves.Add("All your ships have been sunk! You lost!");
+                        await JS.InvokeVoidAsync("pauseBackgroundMusic");
+                        await JS.InvokeVoidAsync("playSound", "lost");
+                        InvokeAsync(StateHasChanged); // Refresh UI
+                    }
                 }
+                
                 // if health is remaining
                 else
                 {
@@ -653,12 +1177,41 @@ Creation Date: September 10, 2024
         await hubConnection.StartAsync();
         await hubConnection.SendAsync("GetRooms");
     }
-
+    private bool AreAllShipsSunk(Ship[] ships)
+    {
+    // Check each ship and see if it's destroyed
+        foreach (var ship in ships)
+        {
+            if (ship != null && !ship.IsDestroyed())
+            {
+                return false; // If even one ship is not destroyed, return false
+            }
+        }
+        return true; // All ships are destroyed
+    }
+    private bool AreAllCPUShipsSunk(Ship[] computerShips)
+    {
+    // Check each ship and see if it's destroyed
+        foreach (var ship in computerShips)
+        {
+            if (ship != null && !ship.IsDestroyed())
+            {
+                return false; // If even one ship is not destroyed, return false
+            }
+        }
+        return true; // All ships are destroyed
+    }   
     // to join room
     private async Task JoinRoom(int roomNum)
     {
         // send room number to server and change game state to in lobby
-        if (hubConnection is not null)
+        if (roomNum == -1)
+        {
+            room = -1;
+            currentGameState = GameState.PickShips;
+            await JS.InvokeVoidAsync("playBackgroundMusic");
+        }
+        else if (hubConnection is not null)
         {
             room = roomNum;
             currentGameState = GameState.InLobby;
@@ -666,15 +1219,15 @@ Creation Date: September 10, 2024
             await JS.InvokeVoidAsync("playBackgroundMusic");
         }
     }
-
+    
     // to leave room
-    private async Task LeaveRoom()
+    private async Task LeaveMultiplayer()
     {
         if (hubConnection is not null)
         {
             await hubConnection.SendAsync("LeaveRoom", userName, room);
-
             // Reset game state and room information locally
+            await JS.InvokeVoidAsync("pauseBackgroundMusic");
             currentGameState = GameState.ChooseRoom; // Return to room selection screen
             Reset(); // Clear game state (boards, ships, etc.)
 
@@ -704,7 +1257,7 @@ Creation Date: September 10, 2024
             currentGameState = GameState.Setup; // change game state to allow player to set up
         }
     }
-
+    
     // send shot coords to server
     private async Task Fire()
     {
@@ -727,6 +1280,7 @@ Creation Date: September 10, 2024
             await hubConnection.DisposeAsync();
         }
     }
+    
 
     #endregion
     //End C# code
