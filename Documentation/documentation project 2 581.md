@@ -1,7 +1,7 @@
 **Documentation for Project 2**  
 (by Abhishek Bhatt)
 
-# **EECS 581 Project 1 Battleship**
+# **EECS 581 Project 2 Battleship**
 
 Battleship is a 2-player game where each player can position ships of various sizes (identical to their opponent's fleet) wherever they wish on a grid-based board.  
 During each round, the active player selects a grid position to fire at. If the chosen grid position aligns with an enemy ship's, that ship is damaged.  
