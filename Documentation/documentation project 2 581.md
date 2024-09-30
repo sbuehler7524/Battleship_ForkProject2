@@ -32,7 +32,7 @@ This game is designed to be run on a single device, players are expected to hand
  **Time Estimate (person-hours)**
 
 * Abhishek (Documentation) \= 10 hours  
-* Andrew (Coding/UML Diagram/Error Fixing) \= 15 hours  
+* Andrew (Coding/UML Diagram/Error Fixing) \= 16.5 hours  
 * Collins (Coding/Assets/Testing) \=  11 hours  
 * Mikaela (Coding) \= 20 hours  
 * Samuel (Coding) \= 19  hours
@@ -141,7 +141,7 @@ September 28:
   * Samuel: 4 hours  
   * Mikaela: 5 hours  
   * Collins: 4 hours  
-  * Andrew : 2 hours
+  * Andrew : 3.5 hours
 
 September 29:
 
