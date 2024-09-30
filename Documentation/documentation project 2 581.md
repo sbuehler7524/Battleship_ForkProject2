@@ -7,7 +7,7 @@ Battleship is a 2-player game where each player can position ships of various si
 During each round, the active player selects a grid position to fire at. If the chosen grid position aligns with an enemy ship's, that ship is damaged.  
 Once every slot of a given ship has been hit, the ship will sink.  
 Once all ships of a given player have been sunk, the game ends, and the player with one or more remaining ships is declared the winner.  
-This game is designed to be run on either a single device or on two devices & players are expected to hand off control of the device between rounds.
+This game is designed to be run on either a single device or on two devices & players are expected to hand off control of the device between rounds. Players can also chat with one another and if they want to play solo, they can choose the difficulty level of the computer.
 
 **Prerequisites:** 
 
