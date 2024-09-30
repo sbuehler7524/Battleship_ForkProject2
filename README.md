@@ -19,5 +19,3 @@ https://docs.google.com/document/d/1C0vaxgToCWDa7kjZis8mImci-jOaNHgtKJGghgIF-Cc/
 - Mikaela Navarro (2998217)
 - Andrew Vanderwerf (3075534)
 
-Documentation here for now. Will put in readme file soon:
-https://docs.google.com/document/d/1UZ05EOw_3FQxTeidisZ6DFG3QijNTd0s3IcbdwVAQug/edit?usp=sharing
