@@ -568,6 +568,7 @@ Last Modified: 09/29/24
         // Sets up computer's difficulty
         private void SelectDifficulty(int difficulty)
         {
+            // Set difficulty depending on which button the player chose
             isEasySelected = difficulty == 0;
             isMediumSelected = difficulty == 1;
             isHardSelected = difficulty == 2;
@@ -584,17 +585,21 @@ Last Modified: 09/29/24
             computerShips = new Ship[shipLimit];
             Random random = new Random();
 
+            // Iterate through the number of ships to be placed on the computer's board
             for (int i = 0; i < shipLimit; i++)
             {
                 bool shipPlaced = false;
                 int shipLength = i + 1;
 
+                // Continue to find a spot to place ship
                 while (!shipPlaced)
                 {
+                    // Generate random starting coords and orientation
                     int startX = random.Next(0, 10);
                     int startY = random.Next(0, 10);
                     bool isHorizontal = random.NextDouble() >= 0.5;
 
+                    // If ship placement is valid, place ship
                     if (tryPlaceShips(startX, startY, shipLength, isHorizontal))
                     {
                         shipPlaced = true;
@@ -675,13 +680,14 @@ Last Modified: 09/29/24
             return false;
         }
 
-        //Allow single player to fire
+        // Allow single player to fire
         private async Task Fire_Singleplayer()
         {   
             if(currentGameState != GameState.GameOver){    
                 Console.WriteLine("Player's turn");
                 isTurn = true;
 
+                // Check if the player's shot coords are valid
                 if (coordinates.HasValue)
                 {
                     // Player's shot
@@ -806,8 +812,7 @@ Last Modified: 09/29/24
         {
             Console.WriteLine("Computer's Turn");
             
-            // Computer's random shot
-            bool isPlayer = false;
+            bool isPlayer = false;    // Bool to check if its the player's turn, its the computer's
             bool shotIsUnique = false; // Bool to evaluate if the comp's generated target coords are a place it hasn't shot at yet.
             bool foundPreviousHit = false; // Check for a previous hit
             int consecutiveHits = 0; // Track the number of consecutive hits
@@ -822,6 +827,7 @@ Last Modified: 09/29/24
                 x = random.Next(0, 10);
                 y = random.Next(0, 10);
 
+                // Check to see if computer has shot at coords yet
                 while (!shotIsUnique)
                 {
                     if (computerShots[x,y] == false) // If comp hasn't shot here before...
@@ -930,6 +936,7 @@ Last Modified: 09/29/24
                 {
                     for (int j = 0; j < 10; j++)
                     {
+                        // If the coords has a ship and hasn't been shot at, computer has coords to shoot at
                         if (playerBoard[i, j] && !computerShots[i, j])
                         {
                             // Computer has the coordinates of player's ship
